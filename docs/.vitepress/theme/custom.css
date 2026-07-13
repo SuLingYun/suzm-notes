@@ -57,11 +57,39 @@
   font-weight: 600;
 }
 
-/* 页脚样式 */
+/* ============================================
+   页脚区域 - 始终深色背景
+   参考 linuxmirrors.cn 的 md-footer-meta 样式
+   ============================================ */
+
+/* 主版权信息页脚 */
 .VPFooter {
-  border-top: 1px solid var(--vp-c-divider);
+  background: #1a1d23 !important;
+  border-top: 1px solid #2a2d33 !important;
   padding-top: 24px;
   margin-top: 48px;
+}
+
+.VPFooter .message,
+.VPFooter .copyright {
+  color: #a0a4ae !important;
+}
+
+.VPFooter .copyright a {
+  color: #60a5fa !important;
+}
+
+/* 底部部署信息栏（layout-bottom 插槽） */
+.footer-meta {
+  background: #1a1d23 !important;
+  padding: 10px 0 16px 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-meta .deploy-text {
+  color: #a0a4ae !important;
 }
 
 /* ============================================
