@@ -17,18 +17,17 @@ export default {
         document.documentElement.classList.add('sidebar-collapsed')
         sidebarCollapsed.value = true
 
-        // 创建切换按钮
+        // 创建侧边栏切换按钮（竖条手柄风格）
         const btn = document.createElement('button')
         btn.id = 'sidebar-toggle'
         btn.className = 'sidebar-toggle-btn'
-        btn.innerHTML = '▶'
         btn.title = '展开侧边栏'
+        btn.innerHTML = '<svg viewBox="0 0 16 16" width="8" height="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>'
         document.body.appendChild(btn)
 
         btn.addEventListener('click', () => {
           sidebarCollapsed.value = !sidebarCollapsed.value
           document.documentElement.classList.toggle('sidebar-collapsed', sidebarCollapsed.value)
-          btn.innerHTML = sidebarCollapsed.value ? '▶' : '◀'
           btn.title = sidebarCollapsed.value ? '展开侧边栏' : '收起侧边栏'
         })
       })
