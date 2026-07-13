@@ -319,6 +319,7 @@ export default defineConfig({
           ]
         }
       ],
+      // SIDEBAR_AUTO_GENERATED_START
       '/linux/': [
         { text: 'Linux 运维', items: [
           { text: 'CentOS 系统调优完全指南', link: '/linux/centos-tuning' },
@@ -371,7 +372,8 @@ export default defineConfig({
           { text: 'Shell 脚本自动化实战', link: '/automation/shell-scripts' },
           { text: 'Zabbix 企业级监控实战', link: '/automation/zabbix' },
         ]}
-      ]
+      ],
+      // SIDEBAR_AUTO_GENERATED_END
     },
 
     // 社交链接

@@ -116,8 +116,10 @@ npm run docs:preview
 | 命令 | 说明 |
 |------|------|
 | `npm run docs:dev` | 启动开发服务器，支持热更新 |
-| `npm run docs:build` | 构建生产版本静态文件，输出到 `docs/.vitepress/dist` |
+| `npm run docs:build` | 自动更新侧边栏配置 + 构建生产版本静态文件 |
 | `npm run docs:preview` | 本地预览构建结果 |
+| `npm run sidebar:update` | 手动更新侧边栏配置（新增文章后运行） |
+| `npm run sidebar:check` | 查看当前所有文章清单 |
 
 ---
 
@@ -220,6 +222,8 @@ suzm-notes/
 │   └── public/
 │       ├── logo.svg                  # 站点图标
 │       └── wechat-qr.png             # 微信赞赏二维码
+├── scripts/
+│   └── update-sidebar.py            # 侧边栏配置自动生成脚本
 ├── .github/workflows/
 │   └── deploy-pages.yml             # GitHub Actions 自动部署工作流
 ├── netlify.toml                      # Netlify 部署配置
@@ -243,9 +247,13 @@ suzm-notes/
 - **社交链接** — `themeConfig.socialLinks` 数组
 - **页脚信息** — `themeConfig.footer` 对象
 
-### 添加新的笔记文章
+### 发布文章（三步流程）
 
-在对应分类目录下创建 `.md` 文件，添加 frontmatter：
+> 侧边栏配置已改为手动维护，但提供了自动化脚本简化操作。
+
+**第一步：创建文章文件**
+
+在对应分类目录下创建 `.md` 文件，必须包含 frontmatter：
 
 ```markdown
 ---
@@ -258,6 +266,51 @@ description: 文章简短描述
 
 正文内容...
 ```
+
+| 分类 | 目录 |
+|------|------|
+| **Linux 运维** | `docs/linux/` |
+| **网络** | `docs/network/` |
+| **数据库** | `docs/database/` |
+| **中间件** | `docs/middleware/` |
+| **云平台** | `docs/cloud/` |
+| **安全** | `docs/security/` |
+| **自动化运维** | `docs/automation/` |
+
+**第二步：一键更新侧边栏**
+
+```bash
+npm run sidebar:update
+```
+
+该命令会自动扫描所有分类目录，读取每篇文章的 `title`，更新 `docs/.vitepress/config.ts` 中的侧边栏配置。
+
+**第三步：本地预览 + 推送到 GitHub**
+
+```bash
+# 本地预览（可选）
+npm run docs:dev
+
+# 或直接构建验证
+npm run docs:build
+
+# 推送到 GitHub 自动部署
+git add -A
+git commit -m "新增文章：xxx"
+git push
+```
+
+推送后，GitHub Actions 会自动执行构建和部署，几分钟后即可看到更新。
+
+> **提示**：`npm run docs:build` 会自动先执行 `sidebar:update` 再构建，所以如果你只构建不预览，可以跳过第二步直接运行 `npm run docs:build`。
+
+### 查看文章清单
+
+```bash
+npm run sidebar:check
+```
+
+列出所有分类下的文章及其文件名，方便确认文章是否被正确识别。
 
 ### 更换赞赏二维码
 
