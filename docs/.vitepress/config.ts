@@ -31,6 +31,8 @@ export default defineConfig({
       light: '/logo-light.png',
       dark: '/logo-dark.png',
     },
+    // 隐藏 Logo 旁边的站点标题文字
+    siteTitle: false,
     search: {
       provider: 'local',
       options: {
