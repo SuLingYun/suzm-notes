@@ -10,6 +10,9 @@
   --vp-c-brand-3: #1e3a8a;
   --vp-c-brand-soft: rgba(26, 86, 219, 0.14);
 
+  /* 导航栏 Logo 放大（默认 24px） */
+  --vp-nav-logo-height: 36px;
+
   /* 自定义首页 Hero 区域 */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(120deg, #1a56db 30%, #3b82f6);
