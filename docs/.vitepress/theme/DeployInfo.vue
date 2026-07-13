@@ -1,7 +1,7 @@
 <template>
   <span class="deploy-text">本网站由 Netlify 部署并提供全球 CDN 边缘网络加速</span>
   <a href="https://www.netlify.com" title="Netlify" target="_blank" rel="noopener noreferrer" class="netlify-logo">
-    <svg width="64" height="64" viewBox="0 0 256 105" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: -0.6em">
+    <svg width="80" height="33" viewBox="0 0 256 105" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_236_43)">
         <path d="M58.4704 103.765V77.4144L59.0165 76.8683H65.6043L66.1504 77.4144V103.765L65.6043 104.311H59.0165L58.4704 103.765Z" fill="#32E6E2"/>
         <path d="M58.4704 26.8971V0.546133L59.0165 0H65.6043L66.1504 0.546133V26.8971L65.6043 27.4432H59.0165L58.4704 26.8971Z" fill="#32E6E2"/>

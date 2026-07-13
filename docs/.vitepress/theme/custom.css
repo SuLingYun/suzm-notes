@@ -106,13 +106,12 @@
 
 .footer-copyright .netlify-logo {
   display: inline-block;
-  vertical-align: -0.6em;
-  margin-left: 2px;
+  vertical-align: middle;
+  margin-left: 4px;
 }
 
 .footer-copyright .netlify-logo svg {
-  width: 64px;
-  height: 64px;
+  display: block;
 }
 
 /* 社交链接区域（右侧） */
@@ -126,8 +125,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   color: #a0a4ae;
   transition: color 0.2s;
   text-decoration: none;
@@ -138,8 +137,8 @@
 }
 
 .footer-social a svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   fill: currentColor;
 }
 
