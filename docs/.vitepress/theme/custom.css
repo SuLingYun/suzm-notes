@@ -199,6 +199,11 @@
   display: none;
 }
 
+/* 减少侧边栏底部空白（默认 96px 过大） */
+.VPSidebar {
+  padding-bottom: 24px !important;
+}
+
 /* 侧边栏收起时，内容区域占满宽度 */
 .sidebar-collapsed .VPContent.has-sidebar {
   padding-left: 0 !important;
