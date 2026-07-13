@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
-import { h, defineComponent, ref } from 'vue'
+import { h, defineComponent, ref, onMounted, onUnmounted } from 'vue'
 import Donation from './Donation.vue'
 import DeployInfo from './DeployInfo.vue'
 import FloatingTools from './FloatingTools.vue'
@@ -11,19 +11,50 @@ export default {
     name: 'MyLayout',
     setup() {
       const sidebarCollapsed = ref(true)
+      const showMenuBtn = ref(false)
+      let observer = null
 
       // 默认收起侧边栏
       if (typeof document !== 'undefined') {
         document.documentElement.classList.add('sidebar-collapsed')
       }
 
-      function toggleSidebar() {
+      let captureHandler = null
+
+      onMounted(() => {
+        // 检查当前页面是否有侧边栏，只在有侧边栏的页面显示菜单按钮
+        const vpContent = document.querySelector('.VPContent')
+        if (vpContent) {
+          showMenuBtn.value = vpContent.classList.contains('has-sidebar')
+          observer = new MutationObserver(() => {
+            showMenuBtn.value = vpContent.classList.contains('has-sidebar')
+          })
+          observer.observe(vpContent, { attributes: true, attributeFilter: ['class'] })
+        }
+
+        // 捕获阶段阻止 <a> 标签导航（不阻止事件传播，让 toggleSidebar 能执行）
+        captureHandler = (e) => {
+          if (e.target.closest('.sidebar-menu-btn')) {
+            e.preventDefault()
+          }
+        }
+        document.addEventListener('click', captureHandler, true)
+      })
+
+      onUnmounted(() => {
+        if (observer) observer.disconnect()
+        if (captureHandler) document.removeEventListener('click', captureHandler, true)
+      })
+
+      function toggleSidebar(e) {
+        e.stopImmediatePropagation()
+        e.preventDefault()
         sidebarCollapsed.value = !sidebarCollapsed.value
         document.documentElement.classList.toggle('sidebar-collapsed', sidebarCollapsed.value)
       }
 
       return () => h(DefaultTheme.Layout, null, {
-      'nav-bar-title-before': () => h('button', {
+      'nav-bar-title-before': () => showMenuBtn.value ? h('button', {
         class: 'sidebar-menu-btn',
         onClick: toggleSidebar,
         title: '展开侧边栏'
@@ -42,7 +73,7 @@ export default {
           h('line', { x1: '3', y1: '12', x2: '21', y2: '12' }),
           h('line', { x1: '3', y1: '18', x2: '21', y2: '18' })
         ])
-      ]),
+      ]) : null,
       'footer-before': () => h(Donation),
       'layout-bottom': () => h('div', { class: 'footer-meta' }, [
         h('div', { class: 'footer-meta__inner' }, [
