@@ -71,6 +71,9 @@
   background: #1a1d23 !important;
   border-top: 1px solid #2a2d33;
   margin-top: 0;
+  /* 盖住侧边栏 fix 定位延伸到底部的白色区域 */
+  position: relative;
+  z-index: 61;
 }
 
 .footer-meta__inner {
@@ -143,71 +146,41 @@
 }
 
 /* ============================================
-   侧边栏横向收缩 - 竖条手柄风格
+   侧边栏横向收缩 - 菜单按钮风格（类似移动端）
    ============================================ */
 
-/* 切换按钮 - 细长竖条手柄 */
-.sidebar-toggle-btn {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 70;
-  width: 16px;
-  height: 80px;
-  padding: 0;
+/* 侧边栏菜单按钮（nav-bar 标题前） */
+.sidebar-menu-btn {
+  display: none;
+  background: none;
   border: none;
-  border-radius: 0 6px 6px 0;
-  background: var(--vp-c-bg-soft);
-  color: var(--vp-c-text-2);
+  padding: 0 12px;
   cursor: pointer;
-  display: flex;
+  color: var(--vp-c-text-1);
   align-items: center;
   justify-content: center;
-  transition: left 0.2s ease, background 0.2s, color 0.2s;
-  box-shadow: 1px 0 4px rgba(0,0,0,0.1);
-  opacity: 0.9;
-  border-left: 2px solid var(--vp-c-border);
+  height: var(--vp-nav-height);
+  transition: color 0.2s;
+  flex-shrink: 0;
 }
 
-/* 侧边栏展开时，按钮在侧边栏右边缘 */
-.sidebar-toggle-btn {
-  left: var(--vp-sidebar-width);
+.sidebar-menu-btn:hover {
+  color: var(--vp-c-brand-1);
 }
 
-/* 侧边栏收起时，按钮移到最左侧 */
-.sidebar-collapsed .sidebar-toggle-btn {
-  left: 0;
-  border-left-color: transparent;
-  border-radius: 0 6px 6px 0;
-}
-
-/* 宽屏下侧边栏变宽，按钮跟随 */
-@media (min-width: 1440px) {
-  .sidebar-toggle-btn {
-    left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width));
-  }
-  .sidebar-collapsed .sidebar-toggle-btn {
-    left: calc((100vw - var(--vp-layout-max-width)) / 2);
+/* 桌面端显示菜单按钮 */
+@media (min-width: 960px) {
+  .sidebar-menu-btn {
+    display: flex;
   }
 }
 
-/* 悬停效果 */
-.sidebar-toggle-btn:hover {
-  background: var(--vp-c-brand-1);
-  color: #fff;
-  opacity: 1;
-  box-shadow: 1px 0 8px rgba(0,0,0,0.18);
-  border-left-color: var(--vp-c-brand-1);
+/* 侧边栏展开时，按钮图标切换为关闭样式 */
+.sidebar-collapsed .sidebar-menu-btn svg line:nth-child(1) {
+  transform-origin: center;
 }
-
-/* 收起时图标朝右（展开箭头），展开时图标朝左（收起箭头） */
-.sidebar-toggle-btn svg {
-  width: 10px;
-  height: 10px;
-  transition: transform 0.2s ease;
-}
-.sidebar-collapsed .sidebar-toggle-btn svg {
-  transform: rotate(180deg);
+.sidebar-collapsed .sidebar-menu-btn svg {
+  /* 默认展开状态用三条横线 */;
 }
 
 /* 侧边栏收起 - 隐藏侧边栏 */
@@ -246,9 +219,9 @@
   }
 }
 
-/* 移动端/平板隐藏侧边栏切换按钮，并恢复侧边栏显示 */
+/* 移动端/平板：菜单按钮曝光在移动端由 VitePress 原生控制 */
 @media (max-width: 959px) {
-  .sidebar-toggle-btn {
+  .sidebar-menu-btn {
     display: none !important;
   }
   .sidebar-collapsed .VPSidebar {

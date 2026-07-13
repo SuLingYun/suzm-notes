@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
-import { h, defineComponent, onMounted, onUnmounted, ref } from 'vue'
+import { h, defineComponent, ref } from 'vue'
 import Donation from './Donation.vue'
 import DeployInfo from './DeployInfo.vue'
 import FloatingTools from './FloatingTools.vue'
@@ -10,39 +10,39 @@ export default {
   Layout: defineComponent({
     name: 'MyLayout',
     setup() {
-      const sidebarCollapsed = ref(false)
+      const sidebarCollapsed = ref(true)
 
-      onMounted(() => {
-        // 避免重复创建按钮
-        let btn = document.getElementById('sidebar-toggle') as HTMLButtonElement | null
-        if (!btn) {
-          btn = document.createElement('button')
-          btn.id = 'sidebar-toggle'
-          btn.className = 'sidebar-toggle-btn'
-          document.body.appendChild(btn)
-        }
-
-        // 默认收起侧边栏
+      // 默认收起侧边栏
+      if (typeof document !== 'undefined') {
         document.documentElement.classList.add('sidebar-collapsed')
-        sidebarCollapsed.value = true
-        btn.innerHTML = '<svg viewBox="0 0 16 16" width="8" height="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>'
-        btn.title = '展开侧边栏'
+      }
 
-        btn.addEventListener('click', handler)
-
-        function handler() {
-          sidebarCollapsed.value = !sidebarCollapsed.value
-          document.documentElement.classList.toggle('sidebar-collapsed', sidebarCollapsed.value)
-          btn!.title = sidebarCollapsed.value ? '展开侧边栏' : '收起侧边栏'
-        }
-      })
-
-      onUnmounted(() => {
-        const btn = document.getElementById('sidebar-toggle')
-        if (btn) btn.remove()
-      })
+      function toggleSidebar() {
+        sidebarCollapsed.value = !sidebarCollapsed.value
+        document.documentElement.classList.toggle('sidebar-collapsed', sidebarCollapsed.value)
+      }
 
       return () => h(DefaultTheme.Layout, null, {
+      'nav-bar-title-before': () => h('button', {
+        class: 'sidebar-menu-btn',
+        onClick: toggleSidebar,
+        title: '展开侧边栏'
+      }, [
+        h('svg', {
+          viewBox: '0 0 24 24',
+          width: '20',
+          height: '20',
+          fill: 'none',
+          stroke: 'currentColor',
+          'stroke-width': '2',
+          'stroke-linecap': 'round',
+          'stroke-linejoin': 'round'
+        }, [
+          h('line', { x1: '3', y1: '6', x2: '21', y2: '6' }),
+          h('line', { x1: '3', y1: '12', x2: '21', y2: '12' }),
+          h('line', { x1: '3', y1: '18', x2: '21', y2: '18' })
+        ])
+      ]),
       'footer-before': () => h(Donation),
       'layout-bottom': () => h('div', { class: 'footer-meta' }, [
         h('div', { class: 'footer-meta__inner' }, [
