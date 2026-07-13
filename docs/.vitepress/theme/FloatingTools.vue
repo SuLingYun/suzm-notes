@@ -78,7 +78,7 @@ onUnmounted(() => {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--vp-c-bg-elv);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,12 +97,12 @@ onUnmounted(() => {
 }
 
 .joe_action_item svg {
-  fill: #555;
+  fill: var(--vp-c-text-2);
   transition: fill 0.3s ease;
 }
 
 .joe_action_item:hover svg {
-  fill: #1a56db;
+  fill: var(--vp-c-brand-1);
 }
 
 /* 火箭按钮 - 默认隐藏，滚动后显示 */
@@ -130,21 +130,6 @@ onUnmounted(() => {
 .joe_action_item.mode .icon-1.active,
 .joe_action_item.mode .icon-2.active {
   display: block;
-}
-
-/* 深色模式适配 */
-@media (prefers-color-scheme: dark) {
-  .joe_action_item {
-    background: #2c2c2c;
-  }
-
-  .joe_action_item svg {
-    fill: #999;
-  }
-
-  .joe_action_item:hover svg {
-    fill: #60a5fa;
-  }
 }
 
 /* 移动端适配 */

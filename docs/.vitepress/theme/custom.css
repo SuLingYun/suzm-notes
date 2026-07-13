@@ -165,41 +165,19 @@
 
 /* ============================================
    Features 卡片响应式布局
+   VitePress 默认使用 flexbox 实现响应式，
+   这里仅调整容器宽度和内边距
    ============================================ */
 
-/* 默认 VitePress features 是三列，这里覆盖为响应式 */
 .VPHomeFeatures .container {
   max-width: 1152px !important;
   margin: 0 auto !important;
   padding: 0 24px !important;
 }
 
-.VPHomeFeatures .items {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 20px !important;
-}
-
-.VPHomeFeatures .items .item {
-  max-width: none !important;
-}
-
-@media (max-width: 959px) {
-  .VPHomeFeatures .items {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
 @media (max-width: 639px) {
   .VPHomeFeatures .container {
     padding: 0 16px !important;
-  }
-  .VPHomeFeatures .items {
-    grid-template-columns: 1fr !important;
-  }
-
-  .VPHomeFeatures .items .item {
-    width: 100% !important;
   }
 }
 
@@ -231,4 +209,19 @@
 /* 让文章内容区域在PC端不过宽，提升阅读体验 */
 .content-container {
   max-width: 800px !important;
+}
+
+/* ============================================
+   隐藏默认主题切换按钮
+   已使用自定义浮动按钮替代
+   ============================================ */
+
+/* 导航栏主题切换按钮（桌面端） */
+.VPNavBarAppearance.appearance {
+  display: none !important;
+}
+
+/* 侧边栏/移动端菜单中的主题切换按钮 */
+.appearance-action {
+  display: none !important;
 }
