@@ -15,7 +15,7 @@ export default defineConfig({
   lastUpdated: true,
   ignoreDeadLinks: true,
   head: [
-    ['link', { rel: 'icon', href: `${basePath}logo.svg`, type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: `${basePath}favicon.png`, type: 'image/png' }],
     ['meta', { property: 'og:title', content: '小弥渡的运维笔记' }],
     ['meta', { property: 'og:description', content: '一个运维老兵的杂货铺 — 十多年 IT 生涯，什么都接触过，什么都不太精通。记不住的就查这里，用过的都整理好了' }],
     ['meta', { property: 'og:url', content: siteUrl }],
@@ -26,6 +26,11 @@ export default defineConfig({
   ],
   // 本地搜索 - 基于 MiniSearch 的模糊全文搜索
   themeConfig: {
+    // 站点 Logo，支持亮色/暗色双版本
+    logo: {
+      light: '/logo-light.png',
+      dark: '/logo-dark.png',
+    },
     search: {
       provider: 'local',
       options: {
