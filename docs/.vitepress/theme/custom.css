@@ -66,13 +66,23 @@
 .VPFooter {
   background: #1a1d23 !important;
   border-top: 1px solid #2a2d33 !important;
-  padding-top: 24px;
+  padding-top: 24px !important;
   margin-top: 48px;
+}
+
+.VPFooter .container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
 }
 
 .VPFooter .message,
 .VPFooter .copyright {
   color: #a0a4ae !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .VPFooter .copyright a {
@@ -82,7 +92,7 @@
 /* 底部部署信息栏（layout-bottom 插槽） */
 .footer-meta {
   background: #1a1d23 !important;
-  padding: 10px 0 16px 0;
+  padding: 10px 0 20px 0;
   text-align: center;
   font-size: 14px;
   line-height: 1.6;
@@ -90,6 +100,39 @@
 
 .footer-meta .deploy-text {
   color: #a0a4ae !important;
+}
+
+/* 底部社交链接 */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 10px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #2a2d33;
+  color: #a0a4ae;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  background: #3a3d45;
+  color: #e0e4ea;
+}
+
+.footer-social a svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 
 /* ============================================

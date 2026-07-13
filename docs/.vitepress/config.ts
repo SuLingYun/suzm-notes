@@ -406,7 +406,8 @@ export default defineConfig({
 
     // 社交链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/SuLingYun/suzm-notes' }
+      { icon: 'github', link: 'https://github.com/SuLingYun/suzm-notes' },
+      { icon: { svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.984 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.016 0zm6.09 5.333c.328 0 .593.266.592.592v1.482a.593.593 0 01-.592.592H9.777c-.982 0-1.778.796-1.778 1.778v.297c-1.598 0-2.905 1.306-2.905 2.904v4.15a2.904 2.904 0 002.905 2.905h7.704c.982 0 1.778-.796 1.778-1.778V13.63c0-.327-.265-.592-.592-.592h-2.963a.593.593 0 00-.593.592v1.482c0 .327-.265.592-.592.592H9.185a.593.593 0 01-.593-.592v-4.149c0-.327.265-.592.592-.592h8.89z"/></svg>' }, link: 'https://gitee.com/SuLingYun' }
     ],
 
     // 页脚
