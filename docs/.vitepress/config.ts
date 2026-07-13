@@ -338,6 +338,7 @@ export default defineConfig({
       ],
       '/database/': [
         { text: '数据库', items: [
+          { text: 'CentOS 7.9 MySQL 高可用集群（PXC + HAProxy + Keepalived）部署指南', link: '/database/mysql-pxc-ha-cluster' },
           { text: 'MySQL 主从复制配置', link: '/database/mysql-replication' },
           { text: 'MySQL 运维指南', link: '/database/mysql' },
           { text: 'Redis 缓存策略与高可用', link: '/database/redis-cache' },
