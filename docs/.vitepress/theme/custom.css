@@ -213,6 +213,21 @@
   padding-bottom: 24px !important;
 }
 
+/* ============================================
+   内容区域优化 & 多端适配
+   ============================================ */
+
+/* 减少内容区底部空白，避免底部栏上方出现白色间隙 */
+/* VPContent 默认 padding-bottom: 96px 会产生大块白色区域 */
+.VPContent.has-sidebar {
+  padding-bottom: 0 !important;
+}
+
+/* 让文章内容区域在PC端不过宽，提升阅读体验 */
+.content-container {
+  max-width: 800px !important;
+}
+
 /* 侧边栏收起时，内容区域占满宽度 */
 .sidebar-collapsed .VPContent.has-sidebar {
   padding-left: 0 !important;
@@ -224,10 +239,13 @@
   }
 }
 
-/* 移动端不显示侧边栏切换按钮 */
+/* 移动端/平板隐藏侧边栏切换按钮，并恢复侧边栏显示 */
 @media (max-width: 959px) {
   .sidebar-toggle-btn {
     display: none !important;
+  }
+  .sidebar-collapsed .VPSidebar {
+    display: block !important;
   }
 }
 
@@ -370,15 +388,6 @@
   .VPNavBarSearch .search-key {
     display: none !important;
   }
-}
-
-/* ============================================
-   内容页面文章区域宽度优化
-   ============================================ */
-
-/* 让文章内容区域在PC端不过宽，提升阅读体验 */
-.content-container {
-  max-width: 800px !important;
 }
 
 /* ============================================
