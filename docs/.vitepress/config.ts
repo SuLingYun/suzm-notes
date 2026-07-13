@@ -1,8 +1,9 @@
 import { defineConfig } from 'vitepress'
 
 const isNetlify = !!process.env.NETLIFY
-const isDev = !process.env.BASE_PATH
-const basePath = isDev || isNetlify ? '/' : '/suzm-notes/'
+const isGithubPages = !!process.env.GITHUB_PAGES
+const isDev = !isGithubPages && !isNetlify
+const basePath = isGithubPages ? '/suzm-notes/' : '/'
 
 export default defineConfig({
   base: basePath,
