@@ -320,25 +320,57 @@ export default defineConfig({
         }
       ],
       '/linux/': [
-        { text: 'Linux 运维', items: 'auto', collapsed: false }
+        { text: 'Linux 运维', items: [
+          { text: 'CentOS 系统调优完全指南', link: '/linux/centos-tuning' },
+          { text: 'Markdown 排版演示', link: '/linux/markdown-demo' },
+          { text: 'Shell 编程实战', link: '/linux/shell-programming' },
+          { text: 'SSH 安全加固', link: '/linux/ssh-security' },
+          { text: 'Linux 系统故障排查指南', link: '/linux/troubleshooting' },
+        ]}
       ],
       '/network/': [
-        { text: '网络', items: 'auto', collapsed: false }
+        { text: '网络', items: [
+          { text: '防火墙配置指南', link: '/network/firewall' },
+          { text: 'WAF 防护实践', link: '/network/waf' },
+        ]}
       ],
       '/database/': [
-        { text: '数据库', items: 'auto', collapsed: false }
+        { text: '数据库', items: [
+          { text: 'MySQL 主从复制配置', link: '/database/mysql-replication' },
+          { text: 'MySQL 运维指南', link: '/database/mysql' },
+          { text: 'Redis 缓存策略与高可用', link: '/database/redis-cache' },
+          { text: 'Redis 运维指南', link: '/database/redis' },
+        ]}
       ],
       '/middleware/': [
-        { text: '中间件', items: 'auto', collapsed: false }
+        { text: '中间件', items: [
+          { text: 'Nginx 反向代理与负载均衡', link: '/middleware/nginx-proxy' },
+          { text: 'Nginx 配置指南', link: '/middleware/nginx' },
+          { text: 'Tomcat 部署与优化', link: '/middleware/tomcat' },
+        ]}
       ],
       '/cloud/': [
-        { text: '云平台', items: 'auto', collapsed: false }
+        { text: '云平台', items: [
+          { text: 'Kubernetes 入门与实战', link: '/cloud/kubernetes-practice' },
+          { text: 'Kubernetes 容器编排实战', link: '/cloud/kubernetes' },
+          { text: 'VMware 虚拟化运维', link: '/cloud/vmware' },
+        ]}
       ],
       '/security/': [
-        { text: '安全', items: 'auto', collapsed: false }
+        { text: '安全', items: [
+          { text: '数据库审计与合规', link: '/security/database-audit' },
+          { text: '堡垒机部署与配置', link: '/security/堡垒机' },
+          { text: '数据库审计实践', link: '/security/数据库审计' },
+        ]}
       ],
       '/automation/': [
-        { text: '自动化运维', items: 'auto', collapsed: false }
+        { text: '自动化运维', items: [
+          { text: 'Ansible 入门与实战', link: '/automation/ansible' },
+          { text: 'Jenkins CI/CD 流水线搭建', link: '/automation/jenkins' },
+          { text: 'Prometheus 监控体系搭建', link: '/automation/prometheus' },
+          { text: 'Shell 脚本自动化实战', link: '/automation/shell-scripts' },
+          { text: 'Zabbix 企业级监控实战', link: '/automation/zabbix' },
+        ]}
       ]
     },
 
