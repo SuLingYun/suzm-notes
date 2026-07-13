@@ -361,6 +361,7 @@ export default defineConfig({
       '/security/': [
         { text: '安全', items: [
           { text: '数据库审计与合规', link: '/security/database-audit' },
+          { text: 'Windows Server 域控制器重置管理员密码', link: '/security/windows-domain-controller-reset-password' },
           { text: '堡垒机部署与配置', link: '/security/堡垒机' },
           { text: '数据库审计实践', link: '/security/数据库审计' },
         ]}
