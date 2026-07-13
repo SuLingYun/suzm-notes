@@ -298,11 +298,11 @@
    ============================================ */
 
 /* 导航栏主题切换按钮（桌面端） */
-.VPNavBarAppearance.appearance {
+.VPNavBarAppearance {
   display: none !important;
 }
 
 /* 侧边栏/移动端菜单中的主题切换按钮 */
-.appearance-action {
+.VPNavScreenAppearance {
   display: none !important;
 }
