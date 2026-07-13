@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <rect width="600" height="300" fill="#f8fafc"/>
+  <rect x="50" y="50" width="150" height="80" fill="#3b82f6" rx="8"/>
+  <text x="125" y="95" font-family="Arial" font-size="16" fill="white" text-anchor="middle">Master</text>
+  <rect x="400" y="50" width="150" height="80" fill="#10b981" rx="8"/>
+  <text x="475" y="95" font-family="Arial" font-size="16" fill="white" text-anchor="middle">Slave</text>
+  <line x1="200" y1="90" x2="400" y2="90" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="300" y="80" font-family="Arial" font-size="12" fill="#6b7280" text-anchor="middle">replication</text>
+  <text x="300" y="180" font-family="Arial" font-size="14" fill="#374151" text-anchor="middle">MySQL 主从复制架构</text>
+</svg>

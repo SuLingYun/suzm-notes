@@ -1,0 +1,13 @@
+# Netlify 部署配置
+[build]
+  command = "npm run docs:build"
+  publish = "docs/.vitepress/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA 路由回退 - 仅对 HTML 导航请求生效
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
