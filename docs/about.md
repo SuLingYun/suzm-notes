@@ -43,6 +43,14 @@ description: 十多年 IT 老兵，什么都接触过，什么都不太精通
 - **仓库**：[github.com/SuLingYun/suzm-notes](https://github.com/SuLingYun/suzm-notes)
 - **邮箱**：suzhiming.cn@gmail.com
 
+## 赞助支持
+
+如果你觉得这个站点对你有帮助，欢迎请我喝杯咖啡 ☕
+
+<img src="/wechat-qr.png" alt="微信赞赏码" width="200" style="border-radius: 8px;">
+
+*微信扫码赞赏，感谢你的支持！*
+
 ---
 
 *本站内容均为个人原创整理，部分速查手册内容整理自开源项目，已在相关页面标注来源。*
