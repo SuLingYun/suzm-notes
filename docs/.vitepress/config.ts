@@ -324,7 +324,12 @@ export default defineConfig({
       '/linux/': [
         { text: 'Linux 运维', items: [
           { text: 'CentOS 系统调优完全指南', link: '/linux/centos-tuning' },
+          { text: 'CentOS 7 完整安装与配置手册', link: '/linux/centos7-install-config' },
+          { text: 'CentOS 7.9 升级内核三种方法', link: '/linux/centos7-kernel-upgrade' },
+          { text: 'journalctl 常用组合命令大全', link: '/linux/journalctl-cheatsheet' },
+          { text: 'Linux 软 RAID 运维命令', link: '/linux/linux-soft-raid' },
           { text: 'Markdown 排版演示', link: '/linux/markdown-demo' },
+          { text: 'Rocky Linux 9.7 使用清华大学 ELRepo 源升级内核完整流程', link: '/linux/rocky-linux-kernel-upgrade' },
           { text: 'Shell 编程实战', link: '/linux/shell-programming' },
           { text: 'SSH 安全加固', link: '/linux/ssh-security' },
           { text: 'Linux 系统故障排查指南', link: '/linux/troubleshooting' },
@@ -333,11 +338,16 @@ export default defineConfig({
       '/network/': [
         { text: '网络', items: [
           { text: '防火墙配置指南', link: '/network/firewall' },
+          { text: '华为交换机运维手册', link: '/network/huawei-switch-ops' },
+          { text: 'Linux 防火墙管理指南', link: '/network/linux-firewall-management' },
+          { text: 'Linux 网卡 Bonding 配置指南（华为交换机版）', link: '/network/linux-network-bonding' },
+          { text: 'Linux 网络配置文档', link: '/network/linux-network-config' },
           { text: 'WAF 防护实践', link: '/network/waf' },
         ]}
       ],
       '/database/': [
         { text: '数据库', items: [
+          { text: 'MySQL 连接数激增（2万连接）紧急排查与处理手册', link: '/database/mysql-connection-surge' },
           { text: 'CentOS 7.9 MySQL 高可用集群（PXC + HAProxy + Keepalived）部署指南', link: '/database/mysql-pxc-ha-cluster' },
           { text: 'MySQL 主从复制配置', link: '/database/mysql-replication' },
           { text: 'MySQL 运维指南', link: '/database/mysql' },
@@ -347,15 +357,21 @@ export default defineConfig({
       ],
       '/middleware/': [
         { text: '中间件', items: [
+          { text: 'Docker & Docker Compose 全场景命令手册', link: '/middleware/docker-full-manual' },
+          { text: 'NGINX + Keepalived 高可用配置', link: '/middleware/nginx-keepalived-ha' },
           { text: 'Nginx 反向代理与负载均衡', link: '/middleware/nginx-proxy' },
+          { text: 'Nginx 安全升级完整指南', link: '/middleware/nginx-security-upgrade' },
           { text: 'Nginx 配置指南', link: '/middleware/nginx' },
           { text: 'Tomcat 部署与优化', link: '/middleware/tomcat' },
         ]}
       ],
       '/cloud/': [
         { text: '云平台', items: [
+          { text: 'Alibaba Cloud Linux 3 导入VMware vSphere虚拟化平台', link: '/cloud/alibaba-cloud-vmware-import' },
+          { text: 'KunLun G5680 V2 单节点部署 DeepSeek-70B', link: '/cloud/deepseek-70b-deploy' },
           { text: 'Kubernetes 入门与实战', link: '/cloud/kubernetes-practice' },
           { text: 'Kubernetes 容器编排实战', link: '/cloud/kubernetes' },
+          { text: 'LLaMA-Factory NPU 环境部署文档', link: '/cloud/llama-factory-npu-deploy' },
           { text: 'VMware 虚拟化运维', link: '/cloud/vmware' },
         ]}
       ],
@@ -370,8 +386,10 @@ export default defineConfig({
       '/automation/': [
         { text: '自动化运维', items: [
           { text: 'Ansible 入门与实战', link: '/automation/ansible' },
+          { text: 'elssh 构建指南 - 基于 Docker 的 RPM 打包', link: '/automation/elssh-build-guide' },
           { text: 'Jenkins CI/CD 流水线搭建', link: '/automation/jenkins' },
           { text: 'Prometheus 监控体系搭建', link: '/automation/prometheus' },
+          { text: 'rsync + inotify 实时文件同步工具', link: '/automation/rsync-inotify-sync' },
           { text: 'Shell 脚本自动化实战', link: '/automation/shell-scripts' },
           { text: 'Zabbix 企业级监控实战', link: '/automation/zabbix' },
         ]}

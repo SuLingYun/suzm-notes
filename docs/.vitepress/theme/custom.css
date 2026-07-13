@@ -60,3 +60,175 @@
   padding-top: 24px;
   margin-top: 48px;
 }
+
+/* ============================================
+   Hero 区域布局优化
+   ============================================ */
+
+/* PC 端 Hero 文字换行控制 */
+@media (min-width: 960px) {
+  .VPHero .name,
+  .VPHero .text {
+    max-width: 640px;
+  }
+
+  .VPHero .name .clip {
+    white-space: normal !important;
+    word-break: break-word;
+  }
+
+  .VPHero .text {
+    font-size: 28px !important;
+    line-height: 1.5 !important;
+  }
+
+  .VPHero .text .clip {
+    white-space: pre-line !important;
+  }
+
+  .VPHero .tagline {
+    font-size: 18px !important;
+    max-width: 640px;
+  }
+
+  .VPHero .actions {
+    margin-top: 24px !important;
+  }
+}
+
+/* 平板端适配 */
+@media (min-width: 640px) and (max-width: 959px) {
+  .VPHero .name .clip {
+    white-space: normal !important;
+  }
+
+  .VPHero .text {
+    font-size: 24px !important;
+    line-height: 1.5 !important;
+  }
+
+  .VPHero .text .clip {
+    white-space: pre-line !important;
+  }
+
+  .VPHero .tagline {
+    font-size: 16px !important;
+  }
+}
+
+/* 移动端 Hero 适配 */
+@media (max-width: 639px) {
+  .VPHero .name {
+    font-size: 32px !important;
+  }
+
+  .VPHero .name .clip {
+    white-space: normal !important;
+  }
+
+  .VPHero .text {
+    font-size: 20px !important;
+    line-height: 1.6 !important;
+    margin-top: 8px;
+  }
+
+  .VPHero .text .clip {
+    white-space: pre-line !important;
+  }
+
+  .VPHero .tagline {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-top: 12px;
+  }
+
+  .VPHero .actions {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+
+  .VPHero .actions .action {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .VPHero .actions .action a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 24px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* ============================================
+   Features 卡片响应式布局
+   ============================================ */
+
+/* 默认 VitePress features 是三列，这里覆盖为响应式 */
+.VPHomeFeatures .container {
+  max-width: 1152px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+}
+
+.VPHomeFeatures .items {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+}
+
+.VPHomeFeatures .items .item {
+  max-width: none !important;
+}
+
+@media (max-width: 959px) {
+  .VPHomeFeatures .items {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .VPHomeFeatures .container {
+    padding: 0 16px !important;
+  }
+  .VPHomeFeatures .items {
+    grid-template-columns: 1fr !important;
+  }
+
+  .VPHomeFeatures .items .item {
+    width: 100% !important;
+  }
+}
+
+/* ============================================
+   最近更新文章区域响应式
+   ============================================ */
+
+@media (max-width: 639px) {
+  .recent-posts .posts-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============================================
+   导航栏适配
+   ============================================ */
+
+@media (max-width: 639px) {
+  /* 隐藏搜索框中的 Ctrl K 提示 */
+  .VPNavBarSearch .search-key {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   内容页面文章区域宽度优化
+   ============================================ */
+
+/* 让文章内容区域在PC端不过宽，提升阅读体验 */
+.content-container {
+  max-width: 800px !important;
+}
