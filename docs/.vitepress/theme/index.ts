@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
-import { h } from 'vue'
+import { h, defineComponent, onMounted } from 'vue'
 import Donation from './Donation.vue'
 import DeployInfo from './DeployInfo.vue'
 import FloatingTools from './FloatingTools.vue'
@@ -7,8 +7,30 @@ import './custom.css'
 
 export default {
   extends: DefaultTheme,
-  Layout() {
-    return h(DefaultTheme.Layout, null, {
+  Layout: defineComponent({
+    name: 'MyLayout',
+    setup() {
+      onMounted(() => {
+        // 侧边栏默认折叠 - 点击展开/折叠功能
+        // 使用捕获阶段事件监听，在 Vue 的 @click.stop 之前执行
+        document.addEventListener('click', (e) => {
+          const target = e.target
+          if (!(target instanceof HTMLElement)) return
+          const caret = target.closest('.VPSidebarItem .caret')
+          if (caret) {
+            const item = caret.closest('.VPSidebarItem')
+            if (item) {
+              const items = item.querySelector(':scope > .items')
+              if (items instanceof HTMLElement) {
+                const isHidden = items.style.display === 'none' || items.style.display === ''
+                items.style.display = isHidden ? 'block' : 'none'
+              }
+            }
+          }
+        }, true) // capture phase
+      })
+
+      return () => h(DefaultTheme.Layout, null, {
       'footer-before': () => h(Donation),
       'layout-bottom': () => h('div', { class: 'footer-meta' }, [
         h('div', { class: 'footer-meta__inner' }, [
@@ -38,5 +60,6 @@ export default {
       ]),
       'layout-top': () => h(FloatingTools)
     })
-  }
+    }
+  })
 }
