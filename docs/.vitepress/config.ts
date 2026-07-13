@@ -412,7 +412,6 @@ export default defineConfig({
 
     // 页脚
     footer: {
-      message: '以专业态度记录运维实践',
       copyright: `Copyright © ${new Date().getFullYear()} 小弥渡`
     }
   },

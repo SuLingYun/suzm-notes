@@ -58,74 +58,82 @@
 }
 
 /* ============================================
-   页脚区域 - 始终深色背景
-   参考 linuxmirrors.cn 的 md-footer-meta 样式
+   页脚区域 - 完全参照 linuxmirrors.cn
    ============================================ */
 
-/* 主版权信息页脚 */
+/* 隐藏默认 VPFooter，由 layout-bottom 统一渲染 */
 .VPFooter {
+  display: none !important;
+}
+
+/* 底部元信息栏（md-footer-meta 等效） */
+.footer-meta {
   background: #1a1d23 !important;
-  border-top: 1px solid #2a2d33 !important;
-  padding-top: 24px !important;
+  border-top: 1px solid #2a2d33;
   margin-top: 48px;
 }
 
-.VPFooter .container {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 8px !important;
-  flex-wrap: wrap !important;
+.footer-meta__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 8px 32px;
 }
 
-.VPFooter .message,
-.VPFooter .copyright {
-  color: #a0a4ae !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.VPFooter .copyright a {
-  color: #60a5fa !important;
-}
-
-/* 底部部署信息栏（layout-bottom 插槽） */
-.footer-meta {
-  background: #1a1d23 !important;
-  padding: 10px 0 20px 0;
-  text-align: center;
-  font-size: 14px;
+/* 版权区域（左侧） */
+.footer-copyright {
+  color: #a0a4ae;
+  font-size: 12.8px;
   line-height: 1.6;
 }
 
-.footer-meta .deploy-text {
-  color: #a0a4ae !important;
+.footer-copyright a {
+  color: #a0a4ae;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
-/* 底部社交链接 */
+.footer-copyright a:hover {
+  color: #e0e4ea;
+}
+
+.footer-copyright__highlight {
+  color: #d0d4da;
+}
+
+.footer-copyright .netlify-logo {
+  display: inline-block;
+  vertical-align: -0.6em;
+  margin-left: 2px;
+}
+
+.footer-copyright .netlify-logo svg {
+  width: 64px;
+  height: 64px;
+}
+
+/* 社交链接区域（右侧） */
 .footer-social {
   display: flex;
-  justify-content: center;
+  gap: 8px;
   align-items: center;
-  gap: 16px;
-  padding-bottom: 10px;
 }
 
 .footer-social a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #2a2d33;
+  width: 28px;
+  height: 28px;
   color: #a0a4ae;
-  transition: all 0.2s ease;
+  transition: color 0.2s;
   text-decoration: none;
 }
 
 .footer-social a:hover {
-  background: #3a3d45;
   color: #e0e4ea;
 }
 
