@@ -4,7 +4,6 @@ layout: home
 
 hero:
   name: "小弥渡的运维笔记"
-  text: "十多年 IT 生涯<br>什么都接触过<br>什么都不太精通"
   tagline: 一个运维老兵的杂货铺 — 记不住的就查这里，用过的都整理好了
   actions:
     - theme: brand
