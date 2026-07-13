@@ -66,11 +66,11 @@
   display: none !important;
 }
 
-/* 底部元信息栏（md-footer-meta 等效） */
+/* 底部元信息栏 */
 .footer-meta {
   background: #1a1d23 !important;
   border-top: 1px solid #2a2d33;
-  margin-top: 48px;
+  width: 100%;
 }
 
 .footer-meta__inner {
@@ -78,9 +78,23 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 1360px;
+  max-width: var(--vp-layout-max-width);
   margin: 0 auto;
   padding: 8px 32px;
+}
+
+/* 大屏下与内容区域对齐（有侧边栏时） */
+@media (min-width: 960px) {
+  .footer-meta__inner {
+    padding-left: calc(var(--vp-sidebar-width) + 32px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .footer-meta__inner {
+    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width) + 32px);
+    padding-right: calc((100vw - var(--vp-layout-max-width)) / 2 + 32px);
+  }
 }
 
 /* 版权区域（左侧） */
