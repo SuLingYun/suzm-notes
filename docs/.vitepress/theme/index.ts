@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
-import { h, defineComponent, onMounted } from 'vue'
+import { h, defineComponent, onMounted, ref } from 'vue'
 import Donation from './Donation.vue'
 import DeployInfo from './DeployInfo.vue'
 import FloatingTools from './FloatingTools.vue'
@@ -10,24 +10,27 @@ export default {
   Layout: defineComponent({
     name: 'MyLayout',
     setup() {
+      const sidebarCollapsed = ref(false)
+
       onMounted(() => {
-        // 侧边栏默认折叠 - 点击展开/折叠功能
-        // 使用捕获阶段事件监听，在 Vue 的 @click.stop 之前执行
-        document.addEventListener('click', (e) => {
-          const target = e.target
-          if (!(target instanceof HTMLElement)) return
-          const caret = target.closest('.VPSidebarItem .caret')
-          if (caret) {
-            const item = caret.closest('.VPSidebarItem')
-            if (item) {
-              const items = item.querySelector(':scope > .items')
-              if (items instanceof HTMLElement) {
-                const isHidden = items.style.display === 'none' || items.style.display === ''
-                items.style.display = isHidden ? 'block' : 'none'
-              }
-            }
-          }
-        }, true) // capture phase
+        // 侧边栏横向收缩 - 默认收起，点击按钮展开/收起
+        document.documentElement.classList.add('sidebar-collapsed')
+        sidebarCollapsed.value = true
+
+        // 创建切换按钮
+        const btn = document.createElement('button')
+        btn.id = 'sidebar-toggle'
+        btn.className = 'sidebar-toggle-btn'
+        btn.innerHTML = '▶'
+        btn.title = '展开侧边栏'
+        document.body.appendChild(btn)
+
+        btn.addEventListener('click', () => {
+          sidebarCollapsed.value = !sidebarCollapsed.value
+          document.documentElement.classList.toggle('sidebar-collapsed', sidebarCollapsed.value)
+          btn.innerHTML = sidebarCollapsed.value ? '▶' : '◀'
+          btn.title = sidebarCollapsed.value ? '展开侧边栏' : '收起侧边栏'
+        })
       })
 
       return () => h(DefaultTheme.Layout, null, {

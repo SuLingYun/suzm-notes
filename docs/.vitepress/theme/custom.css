@@ -143,12 +143,68 @@
 }
 
 /* ============================================
-   侧边栏默认折叠
+   侧边栏横向收缩
    ============================================ */
 
-/* 所有一级侧边栏分组默认折叠 */
-.VPSidebarItem.level-0 > .items {
+/* 切换按钮 */
+.sidebar-toggle-btn {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  width: 20px;
+  height: 48px;
+  padding: 0;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.25s, background 0.2s, color 0.2s;
+  box-shadow: 1px 0 4px rgba(0,0,0,0.1);
+}
+
+.sidebar-toggle-btn:hover {
+  background: var(--vp-c-brand-1);
+  color: #fff;
+}
+
+/* 侧边栏收起 - 隐藏侧边栏 */
+.sidebar-collapsed .VPSidebar {
   display: none;
+}
+
+/* 侧边栏收起时，切换按钮移到最左侧 */
+.sidebar-collapsed .sidebar-toggle-btn {
+  left: 0;
+}
+
+/* 侧边栏展开时，切换按钮在侧边栏右边缘 */
+.sidebar-toggle-btn {
+  left: var(--vp-sidebar-width);
+}
+
+/* 侧边栏收起时，内容区域占满宽度 */
+.sidebar-collapsed .VPContent.has-sidebar {
+  padding-left: 0 !important;
+}
+
+@media (min-width: 1440px) {
+  .sidebar-collapsed .VPContent.has-sidebar {
+    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
+  }
+}
+
+/* 移动端不显示侧边栏切换按钮 */
+@media (max-width: 959px) {
+  .sidebar-toggle-btn {
+    display: none !important;
+  }
 }
 
 /* ============================================
