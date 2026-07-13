@@ -10,7 +10,7 @@ export default {
   Layout() {
     return h(DefaultTheme.Layout, null, {
       'footer-before': () => h(Donation),
-      'footer-bottom': () => h(DeployInfo),
+      'layout-bottom': () => h(DeployInfo),
       'layout-top': () => h(FloatingTools)
     })
   }
