@@ -8,7 +8,7 @@ const basePath = isGithubPages ? '/suzm-notes/' : '/'
 export default defineConfig({
   base: basePath,
   title: '小弥渡的运维笔记',
-  description: '小弥渡的技术分享与日常笔记',
+  description: '一个运维老兵的杂货铺，十多年 IT 生涯，什么都接触过，什么都不太精通',
   lang: 'zh-CN',
   cleanUrls: true,
   lastUpdated: true,
@@ -16,12 +16,12 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: `${basePath}logo.svg`, type: 'image/svg+xml' }],
     ['meta', { property: 'og:title', content: '小弥渡的运维笔记' }],
-    ['meta', { property: 'og:description', content: '运维工程师的技术沉淀与实战经验分享' }],
+    ['meta', { property: 'og:description', content: '一个运维老兵的杂货铺 — 十多年 IT 生涯，什么都接触过，什么都不太精通。记不住的就查这里，用过的都整理好了' }],
     ['meta', { property: 'og:url', content: 'https://suzm.cn' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
     ['meta', { name: 'twitter:title', content: '小弥渡的运维笔记' }],
-    ['meta', { name: 'twitter:description', content: '运维工程师的技术沉淀与实战经验分享' }]
+    ['meta', { name: 'twitter:description', content: '一个运维老兵的杂货铺 — 十多年 IT 生涯，什么都接触过，什么都不太精通。记不住的就查这里，用过的都整理好了' }]
   ],
   // 本地搜索 - 基于 MiniSearch 的模糊全文搜索
   themeConfig: {
