@@ -43,8 +43,6 @@ import RecentPosts from './.vitepress/theme/RecentPosts.vue'
 
 ## 速查手册
 
-十多年接触了太多技术，什么都用过，但细节总是记不住。这份速查手册就是我的"第二大脑"。
-
 | 分类 | 篇数 | 内容 |
 |:-----|:----:|:-----|
 | **编程语言** | 31 | Python、Go、Rust、Java、TypeScript、Bash、C/C++ 等 |
