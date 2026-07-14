@@ -1,13 +1,76 @@
-# Netlify 部署配置
+# ============================================
+# Netlify 部署配置 - 小弥渡的运维笔记
+# ============================================
+
 [build]
   command = "npm run docs:build"
   publish = "docs/.vitepress/dist"
+  cache_dir = "node_modules"
 
 [build.environment]
   NODE_VERSION = "20"
+  NETLIFY = "true"
 
-# SPA 路由回退 - 仅对 HTML 导航请求生效
+# VitePress 已完成压缩打包，关闭 Netlify 二次处理以加速构建
+[build.processing]
+  css = { bundle = false, minify = false }
+  js = { bundle = false, minify = false }
+  html = { pretty_urls = true }
+
+# ============================================
+# 缓存策略
+# ============================================
+
+# 静态资源（带 hash）- 永久缓存
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 图片资源 - 30天缓存
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# HTML - 不缓存，保证内容实时更新
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ============================================
+# 安全响应头
+# ============================================
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# ============================================
+# 404 页面（VitePress 会自动生成）
+# ============================================
+
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
