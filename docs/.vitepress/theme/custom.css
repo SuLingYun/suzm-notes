@@ -13,6 +13,9 @@
   /* 导航栏 Logo 放大（默认 24px，与搜索框同高） */
   --vp-nav-logo-height: 40px;
 
+  /* 整体布局最大宽度（默认 1440px，调整为 1280px 使顶栏底栏更协调） */
+  --vp-layout-max-width: 1280px;
+
   /* 自定义首页 Hero 区域 */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(120deg, #1a56db 30%, #3b82f6);
@@ -81,7 +84,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 1360px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 48px 32px 8px;
 }

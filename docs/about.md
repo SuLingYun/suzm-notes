@@ -41,7 +41,6 @@ description: 十多年 IT 老兵，什么都接触过，什么都不太精通
 
 - **GitHub**：[github.com/SuLingYun](https://github.com/SuLingYun)
 - **Gitee**：[gitee.com/SuLingYun](https://gitee.com/SuLingYun)
-- **仓库**：[github.com/SuLingYun/suzm-notes](https://github.com/SuLingYun/suzm-notes)
 - **邮箱**：suzhiming.cn@gmail.com
 
 ## 赞助支持
