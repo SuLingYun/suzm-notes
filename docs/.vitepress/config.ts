@@ -364,6 +364,7 @@ export default defineConfig({
       '/database/': [
         { text: '数据库', items: [
           { text: 'CentOS 7.9 离线安装 MySQL 5.7.36', link: '/database/centos7-offline-mysql5736' },
+          { text: '达梦数据库快速恢复工具集', link: '/database/dmdb-recovery-toolset' },
           { text: 'MySQL 数据库 binlog 日志正确清理方法', link: '/database/mysql-binlog-cleanup' },
           { text: 'MySQL 连接数激增（2万连接）紧急排查与处理手册', link: '/database/mysql-connection-surge' },
           { text: 'CentOS 7.9 MySQL 高可用集群（PXC + HAProxy + Keepalived）部署指南', link: '/database/mysql-pxc-ha-cluster' },
