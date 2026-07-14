@@ -73,10 +73,7 @@
 .footer-meta {
   background: #1a1d23 !important;
   border-top: 1px solid #2a2d33;
-  border-radius: 8px 8px 0 0;
-  margin: 0 auto;
   margin-top: 0;
-  max-width: var(--vp-layout-max-width);
   /* 盖住侧边栏 fix 定位延伸到底部的白色区域 */
   position: relative;
   z-index: 61;
@@ -89,7 +86,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 32px 8px;
+  padding: 24px 32px 8px;
 }
 
 /* 版权区域（左侧） */
@@ -177,17 +174,15 @@
   height: var(--vp-nav-height);
   transition: color 0.2s;
   flex-shrink: 0;
+  vertical-align: middle;
 }
-
-.sidebar-menu-btn:hover {
-  color: var(--vp-c-brand-1);
-}
-
-/* 桌面端显示菜单按钮 */
 @media (min-width: 960px) {
-  .sidebar-menu-btn {
-    display: flex;
-  }
+  .sidebar-menu-btn { display: inline-flex; }
+}
+
+.VPNavBarTitle {
+  display: flex;
+  align-items: center;
 }
 
 /* 侧边栏展开时，按钮图标切换为关闭样式 */

@@ -13,13 +13,50 @@ export default {
       const sidebarCollapsed = ref(true)
       const showMenuBtn = ref(false)
       let observer = null
+      let titleObserver = null
 
       // 默认收起侧边栏
       if (typeof document !== 'undefined') {
         document.documentElement.classList.add('sidebar-collapsed')
       }
 
-      let captureHandler = null
+      function toggleSidebar(e) {
+        if (e) {
+          e.stopImmediatePropagation()
+          e.preventDefault()
+        }
+        sidebarCollapsed.value = !sidebarCollapsed.value
+        document.documentElement.classList.toggle('sidebar-collapsed', sidebarCollapsed.value)
+      }
+
+      // 创建菜单按钮 DOM 元素
+      function createMenuBtn() {
+        const btn = document.createElement('button')
+        btn.className = 'sidebar-menu-btn'
+        btn.title = '展开侧边栏'
+        btn.setAttribute('aria-label', '展开侧边栏')
+        btn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`
+        btn.addEventListener('click', toggleSidebar)
+        return btn
+      }
+
+      // 注入菜单按钮到标题链接之前（作为兄弟元素，不在 a 标签内部）
+      function injectMenuBtn() {
+        const titleEl = document.querySelector('.VPNavBarTitle')
+        if (!titleEl) return
+        const link = titleEl.querySelector('.title')
+        if (!link) return
+
+        // 移除已存在的按钮避免重复
+        const existing = titleEl.querySelector('.sidebar-menu-btn')
+        if (existing) existing.remove()
+
+        // 只在有侧边栏的页面显示
+        if (!showMenuBtn.value) return
+
+        const btn = createMenuBtn()
+        titleEl.insertBefore(btn, link)
+      }
 
       onMounted(() => {
         // 检查当前页面是否有侧边栏，只在有侧边栏的页面显示菜单按钮
@@ -28,52 +65,29 @@ export default {
           showMenuBtn.value = vpContent.classList.contains('has-sidebar')
           observer = new MutationObserver(() => {
             showMenuBtn.value = vpContent.classList.contains('has-sidebar')
+            // 延迟执行以确保 DOM 已更新
+            setTimeout(injectMenuBtn, 0)
           })
           observer.observe(vpContent, { attributes: true, attributeFilter: ['class'] })
         }
 
-        // 捕获阶段阻止 <a> 标签导航（不阻止事件传播，让 toggleSidebar 能执行）
-        captureHandler = (e) => {
-          if (e.target.closest('.sidebar-menu-btn')) {
-            e.preventDefault()
-          }
+        // 等待 VitePress 渲染完成后注入按钮
+        const titleEl = document.querySelector('.VPNavBarTitle')
+        if (titleEl) {
+          injectMenuBtn()
+          titleObserver = new MutationObserver(() => {
+            setTimeout(injectMenuBtn, 0)
+          })
+          titleObserver.observe(titleEl, { childList: true, subtree: true })
         }
-        document.addEventListener('click', captureHandler, true)
       })
 
       onUnmounted(() => {
         if (observer) observer.disconnect()
-        if (captureHandler) document.removeEventListener('click', captureHandler, true)
+        if (titleObserver) titleObserver.disconnect()
       })
 
-      function toggleSidebar(e) {
-        e.stopImmediatePropagation()
-        e.preventDefault()
-        sidebarCollapsed.value = !sidebarCollapsed.value
-        document.documentElement.classList.toggle('sidebar-collapsed', sidebarCollapsed.value)
-      }
-
       return () => h(DefaultTheme.Layout, null, {
-      'nav-bar-title-before': () => showMenuBtn.value ? h('button', {
-        class: 'sidebar-menu-btn',
-        onClick: toggleSidebar,
-        title: '展开侧边栏'
-      }, [
-        h('svg', {
-          viewBox: '0 0 24 24',
-          width: '20',
-          height: '20',
-          fill: 'none',
-          stroke: 'currentColor',
-          'stroke-width': '2',
-          'stroke-linecap': 'round',
-          'stroke-linejoin': 'round'
-        }, [
-          h('line', { x1: '3', y1: '6', x2: '21', y2: '6' }),
-          h('line', { x1: '3', y1: '12', x2: '21', y2: '12' }),
-          h('line', { x1: '3', y1: '18', x2: '21', y2: '18' })
-        ])
-      ]) : null,
       'footer-before': () => h(Donation),
       'layout-bottom': () => h('div', { class: 'footer-meta' }, [
         h('div', { class: 'footer-meta__inner' }, [
