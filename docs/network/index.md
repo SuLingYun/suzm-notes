@@ -6,11 +6,7 @@
 
 ## 文章列表
 
-| 文章 | 描述 | 标签 |
-|------|------|------|
-| [防火墙配置指南](./firewall.md) | iptables / firewalld 配置、常用规则示例、NAT 转发配置 | `iptables` `firewalld` `NAT` `安全` |
-| [WAF 防护实践](./waf.md) | ModSecurity 配置、OWASP 规则集、CC 攻击防护、IP 黑白名单 | `WAF` `ModSecurity` `OWASP` `安全` |
-| [Linux 故障排查指南](../linux/troubleshooting.md) | CPU 飙高、内存泄漏、磁盘 IO、网络丢包排查 | `Linux` `故障排查` `性能调优` |
+<CategoryList category="网络" />
 
 ---
 

@@ -6,10 +6,7 @@
 
 ## 文章列表
 
-| 文章标题 | 描述 | 标签 |
-|---------|------|------|
-| [VMware 虚拟化运维](./vmware.md) | vSphere 基础架构、ESXi 主机管理、虚拟机管理命令、资源池与快照管理 | `VMware`, `vSphere`, `ESXi`, `虚拟化` |
-| [Kubernetes 容器编排实战](./kubernetes.md) | 集群部署、核心概念、kubectl 命令、排障技巧、资源监控 | `Kubernetes`, `kubeadm`, `容器`, `编排` |
+<CategoryList category="云平台" />
 
 ---
 

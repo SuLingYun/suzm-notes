@@ -21,7 +21,7 @@ function getCategoryColor(category) {
   <section class="recent-posts">
     <h2 class="section-title">📝 最近更新</h2>
     <div class="posts-grid">
-      <a v-for="post in posts" :key="post.url" :href="withBase(post.url)" class="post-card">
+      <a v-for="post in posts.slice(0, 15)" :key="post.url" :href="withBase(post.url)" class="post-card">
         <div class="post-header">
           <span class="post-category" :style="{ backgroundColor: getCategoryColor(post.category) + '20', color: getCategoryColor(post.category) }">
             {{ post.category }}

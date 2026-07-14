@@ -3,10 +3,14 @@ import { h, defineComponent, ref, onMounted, onUnmounted } from 'vue'
 import Donation from './Donation.vue'
 import DeployInfo from './DeployInfo.vue'
 import FloatingTools from './FloatingTools.vue'
+import CategoryList from './CategoryList.vue'
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
+  enhanceApp({ app }) {
+    app.component('CategoryList', CategoryList)
+  },
   Layout: defineComponent({
     name: 'MyLayout',
     setup() {

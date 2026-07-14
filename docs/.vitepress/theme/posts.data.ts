@@ -57,7 +57,6 @@ export default createContentLoader('**/*.md', {
         post.category
       )
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-      .slice(0, 15)
     
     return posts
   }
