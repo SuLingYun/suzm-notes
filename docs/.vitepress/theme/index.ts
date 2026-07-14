@@ -42,20 +42,20 @@ export default {
 
       // 注入菜单按钮到标题链接之前（作为兄弟元素，不在 a 标签内部）
       function injectMenuBtn() {
-        const titleEl = document.querySelector('.VPNavBarTitle')
-        if (!titleEl) return
-        const link = titleEl.querySelector('.title')
-        if (!link) return
+        const titleContainer = document.querySelector('.VPNavBar .title')
+        if (!titleContainer) return
+        const titleLink = titleContainer.querySelector('.VPNavBarTitle')
+        if (!titleLink) return
 
         // 移除已存在的按钮避免重复
-        const existing = titleEl.querySelector('.sidebar-menu-btn')
+        const existing = titleContainer.querySelector('.sidebar-menu-btn')
         if (existing) existing.remove()
 
         // 只在有侧边栏的页面显示
         if (!showMenuBtn.value) return
 
         const btn = createMenuBtn()
-        titleEl.insertBefore(btn, link)
+        titleContainer.insertBefore(btn, titleLink)
       }
 
       onMounted(() => {
@@ -72,13 +72,13 @@ export default {
         }
 
         // 等待 VitePress 渲染完成后注入按钮
-        const titleEl = document.querySelector('.VPNavBarTitle')
-        if (titleEl) {
+        const titleContainer = document.querySelector('.VPNavBar .title')
+        if (titleContainer) {
           injectMenuBtn()
           titleObserver = new MutationObserver(() => {
             setTimeout(injectMenuBtn, 0)
           })
-          titleObserver.observe(titleEl, { childList: true, subtree: true })
+          titleObserver.observe(titleContainer, { childList: true, subtree: true })
         }
       })
 
