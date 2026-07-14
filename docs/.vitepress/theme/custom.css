@@ -73,7 +73,10 @@
 .footer-meta {
   background: #1a1d23 !important;
   border-top: 1px solid #2a2d33;
+  border-radius: 8px 8px 0 0;
+  margin: 0 auto;
   margin-top: 0;
+  max-width: var(--vp-layout-max-width);
   /* 盖住侧边栏 fix 定位延伸到底部的白色区域 */
   position: relative;
   z-index: 61;
