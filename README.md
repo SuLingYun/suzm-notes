@@ -88,18 +88,6 @@ suzm-notes/
 
 ---
 
-## ☕ 赞赏支持
-
-如果这个项目对你有帮助，欢迎请我喝杯咖啡 ❤️
-
-<div align="center">
-  <img src="docs/public/wechat-qr.png" width="200" alt="微信赞赏码" style="border-radius: 8px;">
-  <br>
-  <b>微信扫码赞赏</b>
-</div>
-
----
-
 ## 许可证
 
 [MIT License](LICENSE) — Copyright © 2026 小弥渡
