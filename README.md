@@ -4,7 +4,7 @@
 
 [![VitePress](https://img.shields.io/badge/VitePress-1.6.4-646cff.svg)](https://vitepress.dev/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-在线访问-success.svg)](https://sulingyun.github.io/suzm-notes/)
+[![Deploy](https://github.com/SuLingYun/suzm-notes/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/SuLingYun/suzm-notes/actions/workflows/deploy-pages.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3685ef08-47b1-4543-89ec-a87016aaeed7/deploy-status)](https://app.netlify.com/projects/suzm-notes/deploys)
 [![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
 
