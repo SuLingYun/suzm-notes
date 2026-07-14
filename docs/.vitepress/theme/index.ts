@@ -15,10 +15,8 @@ export default {
       let observer = null
       let titleObserver = null
 
-      // 默认收起侧边栏
-      if (typeof document !== 'undefined') {
-        document.documentElement.classList.add('sidebar-collapsed')
-      }
+      // 默认展开侧边栏
+      // 不再默认添加 sidebar-collapsed，让侧边栏默认可见
 
       function toggleSidebar(e) {
         if (e) {
@@ -71,15 +69,22 @@ export default {
           observer.observe(vpContent, { attributes: true, attributeFilter: ['class'] })
         }
 
-        // 等待 VitePress 渲染完成后注入按钮
-        const titleContainer = document.querySelector('.VPNavBar .title')
-        if (titleContainer) {
-          injectMenuBtn()
-          titleObserver = new MutationObserver(() => {
-            setTimeout(injectMenuBtn, 0)
-          })
-          titleObserver.observe(titleContainer, { childList: true, subtree: true })
+        // 等待 VitePress 渲染完成后注入按钮（nav 可能未渲染完成，需要重试）
+        function tryInject() {
+          const titleContainer = document.querySelector('.VPNavBar .title')
+          if (titleContainer) {
+            injectMenuBtn()
+            if (!titleObserver) {
+              titleObserver = new MutationObserver(() => {
+                setTimeout(injectMenuBtn, 0)
+              })
+              titleObserver.observe(titleContainer, { childList: true, subtree: true })
+            }
+          } else {
+            setTimeout(tryInject, 50)
+          }
         }
+        tryInject()
       })
 
       onUnmounted(() => {
