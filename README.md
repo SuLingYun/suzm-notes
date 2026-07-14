@@ -24,7 +24,7 @@
 基于 [VitePress](https://vitepress.dev/) 构建的个人技术知识库，涵盖 **Linux 运维、网络与安全、数据库、中间件、云原生、自动化运维** 等领域的实践笔记，以及 **210+ 篇技术速查手册**。
 
 - **运维笔记** — 实战经验与踩坑记录，7 个分类持续更新
-- **速查手册** — 整理自 [jaywcjlove/reference](https://github.com/jaywcjlove/reference)（MIT 许可证），15 个分类 210+ 篇
+- **速查手册** — 整理自 [jaywcjlove/reference](https://github.com/jaywcjlove/reference)（MIT 许可证），15 个分类共 **212 篇**
 - **全文搜索** — 本地模糊搜索，无需后端
 - **响应式布局** — 桌面端与移动端自适应，支持明暗主题
 - **双平台部署** — GitHub Pages + Netlify CI/CD 自动部署

@@ -31,7 +31,7 @@ features:
     details: VMware 虚拟化、K8s 容器编排、混合云架构 — 技术一直在变，笔记永远跟得上
   - icon: 📖
     title: 速查手册
-    details: 210+ 篇技术速查手册，覆盖 AI、编程、Docker、Git、数据库等 15 个分类 — 随手翻，随时查
+    details: 212 篇技术速查手册，15 个分类 — 编程语言、命令行、前端框架、AI 工具、快捷键… 随手翻，随时查
 
 ---
 
@@ -43,9 +43,27 @@ import RecentPosts from './.vitepress/theme/RecentPosts.vue'
 
 ## 速查手册
 
-十多年接触了太多技术，从 Linux 命令到 Kubernetes，从 Python 到 JavaScript，从 MySQL 到 Redis... 什么都用过，但细节总是记不住。这份速查手册就是我的"第二大脑"。
+十多年接触了太多技术，什么都用过，但细节总是记不住。这份速查手册就是我的"第二大脑"。
 
-[进入速查手册](/quickref/)
+| 分类 | 篇数 | 内容 |
+|:-----|:----:|:-----|
+| **编程语言** | 31 | Python、Go、Rust、Java、TypeScript、Bash、C/C++ 等 |
+| **前端框架** | 26 | Vue、React、CSS、Tailwind、HTML、jQuery 等 |
+| **快捷键** | 26 | VSCode、IntelliJ IDEA、Chrome、Photoshop、Figma 等 |
+| **工具** | 25 | Vim、OpenSSL、FFmpeg、Make、正则表达式 等 |
+| **命令行** | 23 | curl、grep、sed、awk、tar、ssh、systemd、cron 等 |
+| **参考** | 17 | HTTP 状态码、MIME 类型、Emoji、端口号、时区 等 |
+| **Node.js** | 13 | npm、pnpm、yarn、NestJS、Express、PM2 等 |
+| **AI 工具** | 9 | ChatGPT、Claude、Gemini、Grok、Cursor 等 |
+| **数据库** | 8 | MySQL、Redis、MongoDB、PostgreSQL、SQLite 等 |
+| **Git** | 8 | Git、GitHub、GitLab、GitHub CLI、Actions 等 |
+| **Python** | 8 | Django、FastAPI、Flask、PyTorch、pip、conda 等 |
+| **包管理器** | 8 | apt、yum、Homebrew、cargo、pacman、sdkman 等 |
+| **Docker** | 4 | Docker、Dockerfile、Compose、Kubernetes |
+| **配置格式** | 4 | JSON、YAML、TOML、INI |
+| **网络设备** | 2 | 华为、Cisco 设备命令 |
+
+[→ 进入速查手册](/quickref/)
 
 
 <RecentPosts />
