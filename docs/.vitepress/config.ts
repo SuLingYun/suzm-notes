@@ -42,26 +42,12 @@ export default defineConfig({
     // 隐藏 Logo 旁边的站点标题文字
     siteTitle: false,
     search: {
-      provider: 'local',
+      provider: 'algolia',
       options: {
-        locales: {
-          root: {
-            translations: {
-              button: {
-                buttonText: '搜索文章',
-                buttonAriaLabel: '搜索文章'
-              },
-              modal: {
-                noResultsText: '未找到相关结果',
-                resetButtonTitle: '清除搜索条件',
-                footer: {
-                  selectText: '选择',
-                  navigateText: '切换'
-                }
-              }
-            }
-          }
-        }
+        appId: '5993JXWFOE',
+        apiKey: '62314e039b843ea7171c9f7030b8af56',
+        indexName: '小弥渡的运维笔记',
+        _render: { preload: true }
       }
     },
 
