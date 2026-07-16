@@ -19,7 +19,6 @@ export default defineConfig({
   },
   head: [
     ['link', { rel: 'icon', href: `${basePath}favicon.png`, type: 'image/png' }],
-    ['link', { rel: 'canonical', href: siteUrl }],
     ['meta', { property: 'og:locale', content: 'zh_CN' }],
     ['meta', { property: 'og:title', content: '小弥渡的运维笔记' }],
     ['meta', { property: 'og:description', content: '一个运维老兵的杂货铺 — 十多年 IT 生涯，什么都接触过，什么都不太精通。记不住的就查这里，用过的都整理好了' }],
