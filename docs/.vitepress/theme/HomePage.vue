@@ -1,22 +1,30 @@
 <script setup>
 import { withBase } from 'vitepress'
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { data as posts } from './posts.data'
 import { data as quickrefData } from './quickref.data'
 
 const totalNotes = posts.length || 0
 const totalQuickref = quickrefData.reduce((sum, q) => sum + q.count, 0) || 0
 
-const categories = [
-  { name: 'Linux', icon: 'linux', href: '/linux/', count: 16, color: '#f59e0b' },
-  { name: '网络', icon: 'network', href: '/network/', count: 12, color: '#3b82f6' },
-  { name: '数据库', icon: 'database', href: '/database/', count: 10, color: '#06b6d4' },
-  { name: '中间件', icon: 'middleware', href: '/middleware/', count: 6, color: '#8b5cf6' },
-  { name: '云平台', icon: 'cloud', href: '/cloud/', count: 7, color: '#10b981' },
-  { name: '安全', icon: 'security', href: '/security/', count: 6, color: '#ef4444' },
-  { name: '自动化', icon: 'automation', href: '/automation/', count: 7, color: '#ec4899' },
-  { name: '速查手册', icon: 'quickref', href: '/quickref/', count: totalQuickref, color: '#0ea5e9' }
-]
+// 动态计算每个分类的文章数量，确保数字绝对准确
+const categories = computed(() => {
+  const counts = {}
+  posts.forEach(p => {
+    counts[p.category] = (counts[p.category] || 0) + 1
+  })
+
+  return [
+    { name: 'Linux', icon: 'linux', count: counts['Linux'] || 0, color: '#f59e0b' },
+    { name: '网络', icon: 'network', count: counts['网络'] || 0, color: '#3b82f6' },
+    { name: '数据库', icon: 'database', count: counts['数据库'] || 0, color: '#06b6d4' },
+    { name: '中间件', icon: 'middleware', count: counts['中间件'] || 0, color: '#8b5cf6' },
+    { name: '云平台', icon: 'cloud', count: counts['云平台'] || 0, color: '#10b981' },
+    { name: '安全', icon: 'security', count: counts['安全'] || 0, color: '#ef4444' },
+    { name: '自动化', icon: 'automation', count: counts['自动化运维'] || 0, color: '#ec4899' },
+    { name: '速查手册', icon: 'quickref', count: totalQuickref, color: '#0ea5e9' }
+  ]
+})
 
 const displayText = ref('')
 const fullText = '记不住的就查这里'
@@ -76,10 +84,9 @@ onMounted(() => {
         </div>
 
         <div class="categories-grid">
-          <a
+          <div
             v-for="cat in categories"
             :key="cat.name"
-            :href="withBase(cat.href)"
             class="category-card"
             :style="{ '--cat-color': cat.color }"
           >
@@ -97,10 +104,7 @@ onMounted(() => {
               <span class="cat-name">{{ cat.name }}</span>
               <span class="cat-count">{{ cat.count }} 篇</span>
             </div>
-            <div class="cat-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </div>
-          </a>
+          </div>
         </div>
       </div>
 
@@ -337,7 +341,6 @@ onMounted(() => {
   align-items: flex-start;
   padding: 20px;
   border-radius: 14px;
-  text-decoration: none;
   background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -405,16 +408,6 @@ onMounted(() => {
   font-size: 12px;
   color: var(--vp-c-text-3);
   font-variant-numeric: tabular-nums;
-}
-
-.cat-arrow {
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  color: var(--vp-c-text-3);
-}
-
-.category-card:hover .cat-arrow {
-  opacity: 1;
 }
 
 .featured-section {
