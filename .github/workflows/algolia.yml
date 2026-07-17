@@ -1,0 +1,23 @@
+name: Algolia DocSearch
+
+on:
+  workflow_run:
+    workflows: ['Deploy VitePress site to Pages']
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read crawler config
+        id: config
+        run: echo "config=$(cat crawlerConfig.json | jq -r tostring)" >> $GITHUB_OUTPUT
+      - name: Run DocSearch scraper
+        uses: signcl/docsearch-scraper-action@master
+        env:
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          API_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          CONFIG: ${{ steps.config.outputs.config }}
