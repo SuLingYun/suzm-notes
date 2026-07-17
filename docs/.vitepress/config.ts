@@ -454,7 +454,7 @@ export default defineConfig({
       // SIDEBAR_AUTO_GENERATED_END
       '/notes/': [
         {
-          text: '笔记分类',
+          text: '笔记',
           items: [
             { text: 'Linux 运维', collapsed: true, items: [
               { text: 'CentOS 系统调优完全指南', link: '/linux/centos-tuning' },

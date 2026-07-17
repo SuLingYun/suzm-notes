@@ -71,6 +71,7 @@ suzm-notes/
 ├── docs/
 │   ├── .vitepress/          # 主题配置与自定义组件
 │   ├── quickref/            # 速查手册（210+ 篇）
+│   ├── notes/               # 笔记概览页
 │   ├── linux/               # Linux 运维笔记
 │   ├── network/             # 网络笔记
 │   ├── database/            # 数据库笔记
