@@ -89,7 +89,7 @@ suzm-notes/
 
 ### 2. 配置 DocSearch Crawler
 
-在 Algolia 控制台左侧菜单点击 **DocSearch** → **Crawler**，进入爬虫配置界面：
+在 Algolia 控制台左侧菜单点击 **DocSearch** → **Crawler**，进入爬虫配置界面。以下为本站的实际配置，可参考修改：
 
 ```javascript
 new Crawler({
@@ -97,10 +97,12 @@ new Crawler({
   indexPrefix: "your-prefix",
   rateLimit: 8,
   maxDepth: 10,
+  maxUrls: null,
   schedule: "every 1 day",            // 每天自动爬取一次
   startUrls: ["https://your-site.com"],
   renderJavaScript: false,             // VitePress 是静态站点，无需 JS 渲染
-  sitemaps: [],                        // 可选：配置 sitemap 加速爬取
+  sitemaps: [],
+  ignoreCanonicalTo: false,
   discoveryPatterns: ["https://your-site.com/**"],
   actions: [
     {
@@ -109,13 +111,13 @@ new Crawler({
       recordExtractor: ({ helpers }) => {
         return helpers.docsearch({
           recordProps: {
-            lvl0: { selectors: "", defaultValue: "文档" },
-            lvl1: ".vp-doc h1",
-            lvl2: ".vp-doc h2",
-            lvl3: ".vp-doc h3",
-            lvl4: ".vp-doc h4",
-            lvl5: ".vp-doc h5",
-            content: ".vp-doc p, .vp-doc li, .vp-doc td, .vp-doc code",
+            lvl0: { selectors: "", defaultValue: "Documentation" },
+            lvl1: ".content h1",
+            lvl2: ".content h2",
+            lvl3: ".content h3",
+            lvl4: ".content h4",
+            lvl5: ".content h5",
+            content: ".content p, .content li",
           },
           aggregateContent: true,
           recordVersion: "v3",
@@ -123,8 +125,17 @@ new Crawler({
       },
     },
   ],
+  safetyChecks: { beforeIndexPublishing: { maxLostRecordsPercentage: 30 } },
   initialIndexSettings: {
     "your-index": {
+      attributesForFaceting: ["type", "lang"],
+      attributesToRetrieve: [
+        "hierarchy", "content", "anchor", "url",
+        "url_without_anchor", "type",
+      ],
+      attributesToHighlight: ["hierarchy", "content"],
+      attributesToSnippet: ["content:10"],
+      camelCaseAttributes: ["hierarchy", "content"],
       searchableAttributes: [
         "unordered(hierarchy.lvl0)",
         "unordered(hierarchy.lvl1)",
@@ -132,16 +143,36 @@ new Crawler({
         "unordered(hierarchy.lvl3)",
         "unordered(hierarchy.lvl4)",
         "unordered(hierarchy.lvl5)",
+        "unordered(hierarchy.lvl6)",
         "content",
       ],
-      attributesToHighlight: ["hierarchy", "content"],
-      attributesToSnippet: ["content:10"],
+      distinct: true,
+      attributeForDistinct: "url",
+      customRanking: [
+        "desc(weight.pageRank)",
+        "desc(weight.level)",
+        "asc(weight.position)",
+      ],
+      ranking: [
+        "words", "filters", "typo", "attribute",
+        "proximity", "exact", "custom",
+      ],
+      highlightPreTag: '<span class="algolia-docsearch-suggestion--highlight">',
+      highlightPostTag: "</span>",
+      minWordSizefor1Typo: 3,
+      minWordSizefor2Typos: 7,
+      allowTyposOnNumericTokens: false,
+      minProximity: 1,
+      ignorePlurals: true,
+      advancedSyntax: true,
+      attributeCriteriaComputedByMinProximity: true,
+      removeWordsIfNoResults: "allOptional",
     },
   },
 });
 ```
 
-> **注意**：VitePress 站点的内容选择器应使用 `.vp-doc` 前缀（如 `.vp-doc h1`），而非 `.content`。上面示例已修正为 VitePress 标准选择器。如果你的爬虫已使用 `.content` 运行且正常，也可保留。
+> 如果使用 VitePress 默认主题，可尝试将选择器 `.content` 替换为 `.vp-doc`（如 `.vp-doc h1`），以获得更精确的索引结果。
 
 ### 3. 获取 API Key
 

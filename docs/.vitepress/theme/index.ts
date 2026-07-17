@@ -99,7 +99,7 @@ export default {
           // 左侧：版权信息 + Netlify 部署信息
           h('div', { class: 'footer-copyright' }, [
             h('div', { class: 'footer-copyright__highlight' }, [
-              'Copyright © 2026 ',
+              `Copyright © ${new Date().getFullYear()} `,
               h('a', { href: 'https://github.com/SuLingYun', target: '_blank', rel: 'noopener noreferrer' }, '小弥渡'),
               h('br'),
               h(DeployInfo)
