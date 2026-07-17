@@ -118,7 +118,7 @@ export default defineConfig({
         {
           text: '速查手册',
           items: [
-            { text: 'AI',  items: [
+            { text: 'AI', collapsed: true, items: [
               { text: 'ai-tools', link: '/quickref/ai/ai-tools' },
               { text: 'chatgpt', link: '/quickref/ai/chatgpt' },
               { text: 'claude', link: '/quickref/ai/claude' },
@@ -129,7 +129,7 @@ export default defineConfig({
               { text: 'grok', link: '/quickref/ai/grok' },
               { text: 'grok-cli', link: '/quickref/ai/grok-cli' },
             ] },
-            { text: '编程语言与框架',  items: [
+            { text: '编程语言与框架', collapsed: true, items: [
               { text: 'bash', link: '/quickref/programming/bash' },
               { text: 'c', link: '/quickref/programming/c' },
               { text: 'cpp', link: '/quickref/programming/cpp' },
@@ -162,19 +162,19 @@ export default defineConfig({
               { text: 'swiftui', link: '/quickref/programming/swiftui' },
               { text: 'typescript', link: '/quickref/programming/typescript' },
             ] },
-            { text: 'Docker 与容器',  items: [
+            { text: 'Docker 与容器', collapsed: true, items: [
               { text: 'docker', link: '/quickref/docker/docker' },
               { text: 'docker-compose', link: '/quickref/docker/docker-compose' },
               { text: 'dockerfile', link: '/quickref/docker/dockerfile' },
               { text: 'kubernetes', link: '/quickref/docker/kubernetes' },
             ] },
-            { text: '配置格式',  items: [
+            { text: '配置格式', collapsed: true, items: [
               { text: 'ini', link: '/quickref/config/ini' },
               { text: 'json', link: '/quickref/config/json' },
               { text: 'toml', link: '/quickref/config/toml' },
               { text: 'yaml', link: '/quickref/config/yaml' },
             ] },
-            { text: '前端开发',  items: [
+            { text: '前端开发', collapsed: true, items: [
               { text: 'canvas', link: '/quickref/frontend/canvas' },
               { text: 'css', link: '/quickref/frontend/css' },
               { text: 'electron', link: '/quickref/frontend/electron' },
@@ -202,7 +202,7 @@ export default defineConfig({
               { text: 'vue2', link: '/quickref/frontend/vue2' },
               { text: 'wails', link: '/quickref/frontend/wails' },
             ] },
-            { text: 'Node.js 生态',  items: [
+            { text: 'Node.js 生态', collapsed: true, items: [
               { text: 'bun', link: '/quickref/nodejs/bun' },
               { text: 'ejs', link: '/quickref/nodejs/ejs' },
               { text: 'expressjs', link: '/quickref/nodejs/expressjs' },
@@ -217,7 +217,7 @@ export default defineConfig({
               { text: 'pnpm', link: '/quickref/nodejs/pnpm' },
               { text: 'yarn', link: '/quickref/nodejs/yarn' },
             ] },
-            { text: 'Python 生态',  items: [
+            { text: 'Python 生态', collapsed: true, items: [
               { text: 'conda', link: '/quickref/python/conda' },
               { text: 'django', link: '/quickref/python/django' },
               { text: 'fastapi', link: '/quickref/python/fastapi' },
@@ -227,7 +227,7 @@ export default defineConfig({
               { text: 'pytorch', link: '/quickref/python/pytorch' },
               { text: 'uv', link: '/quickref/python/uv' },
             ] },
-            { text: 'Linux 与命令行',  items: [
+            { text: 'Linux 与命令行', collapsed: true, items: [
               { text: '7zip', link: '/quickref/commands/7zip' },
               { text: 'adb', link: '/quickref/commands/adb' },
               { text: 'ansible', link: '/quickref/commands/ansible' },
@@ -252,7 +252,7 @@ export default defineConfig({
               { text: 'tmux', link: '/quickref/commands/tmux' },
               { text: 'zip', link: '/quickref/commands/zip' },
             ] },
-            { text: '工具与编辑器',  items: [
+            { text: '工具与编辑器', collapsed: true, items: [
               { text: 'cmake', link: '/quickref/tools/cmake' },
               { text: 'emacs', link: '/quickref/tools/emacs' },
               { text: 'ffmpeg', link: '/quickref/tools/ffmpeg' },
@@ -279,7 +279,7 @@ export default defineConfig({
               { text: 'xpath', link: '/quickref/tools/xpath' },
               { text: 'yazi', link: '/quickref/tools/yazi' },
             ] },
-            { text: '软件包管理器',  items: [
+            { text: '软件包管理器', collapsed: true, items: [
               { text: 'apt', link: '/quickref/package-manager/apt' },
               { text: 'cargo', link: '/quickref/package-manager/cargo' },
               { text: 'cocoapods', link: '/quickref/package-manager/cocoapods' },
@@ -289,7 +289,7 @@ export default defineConfig({
               { text: 'sdkman', link: '/quickref/package-manager/sdkman' },
               { text: 'yum', link: '/quickref/package-manager/yum' },
             ] },
-            { text: 'Git 与协作',  items: [
+            { text: 'Git 与协作', collapsed: true, items: [
               { text: 'git', link: '/quickref/git/git' },
               { text: 'github', link: '/quickref/git/github' },
               { text: 'github-actions', link: '/quickref/git/github-actions' },
@@ -299,7 +299,7 @@ export default defineConfig({
               { text: 'gitlab-ci', link: '/quickref/git/gitlab-ci' },
               { text: 'subversion', link: '/quickref/git/subversion' },
             ] },
-            { text: '数据库与搜索',  items: [
+            { text: '数据库与搜索', collapsed: true, items: [
               { text: 'elasticsearch', link: '/quickref/database/elasticsearch' },
               { text: 'mongodb', link: '/quickref/database/mongodb' },
               { text: 'mysql', link: '/quickref/database/mysql' },
@@ -309,11 +309,11 @@ export default defineConfig({
               { text: 'redis', link: '/quickref/database/redis' },
               { text: 'sqlite', link: '/quickref/database/sqlite' },
             ] },
-            { text: '网络设备',  items: [
+            { text: '网络设备', collapsed: true, items: [
               { text: 'cisco-devices', link: '/quickref/network/cisco-devices' },
               { text: 'huawei-devices', link: '/quickref/network/huawei-devices' },
             ] },
-            { text: '快捷键',  items: [
+            { text: '快捷键', collapsed: true, items: [
               { text: 'adobe-ae', link: '/quickref/shortcuts/adobe-ae' },
               { text: 'adobe-illustrator', link: '/quickref/shortcuts/adobe-illustrator' },
               { text: 'adobe-lightroom', link: '/quickref/shortcuts/adobe-lightroom' },
@@ -341,7 +341,7 @@ export default defineConfig({
               { text: 'xcode', link: '/quickref/shortcuts/xcode' },
               { text: 'zed', link: '/quickref/shortcuts/zed' },
             ] },
-            { text: '常用对照表',  items: [
+            { text: '常用对照表', collapsed: true, items: [
               { text: 'ascii-code', link: '/quickref/reference/ascii-code' },
               { text: 'aspect-ratio', link: '/quickref/reference/aspect-ratio' },
               { text: 'colors-named', link: '/quickref/reference/colors-named' },
@@ -456,7 +456,7 @@ export default defineConfig({
         {
           text: '笔记分类',
           items: [
-            { text: 'Linux 运维', items: [
+            { text: 'Linux 运维', collapsed: true, items: [
               { text: 'CentOS 系统调优完全指南', link: '/linux/centos-tuning' },
               { text: 'CentOS 7 搭建 FTP 服务器（vsftpd）', link: '/linux/centos7-ftp-server' },
               { text: 'CentOS 7 完整安装与配置手册', link: '/linux/centos7-install-config' },
@@ -472,7 +472,7 @@ export default defineConfig({
               { text: 'Linux systemd 服务管理添加', link: '/linux/systemd-service-management' },
               { text: 'Linux 系统故障排查指南', link: '/linux/troubleshooting' },
             ]},
-            { text: '网络', items: [
+            { text: '网络', collapsed: true, items: [
               { text: 'CentOS 7 新加网卡及双网卡环境添加永久路由', link: '/network/centos7-network-route' },
               { text: '防火墙配置指南', link: '/network/firewall' },
               { text: 'FRP 内网穿透软件安装【Linux 系统】', link: '/network/frp-intranet-penetration' },
@@ -485,7 +485,7 @@ export default defineConfig({
               { text: '各种交换机查看邻居交换机情况', link: '/network/switch-neighbor-discovery' },
               { text: 'WAF 防护实践', link: '/network/waf' },
             ]},
-            { text: '安全', items: [
+            { text: '安全', collapsed: true, items: [
               { text: '数据库审计与合规', link: '/security/database-audit' },
               { text: 'Kali Linux 系统 Docker 安装及部署 AWVS、Nessus', link: '/security/kali-docker-awvs-nessus' },
               { text: 'Kali Linux 安装后需要做的事情', link: '/security/kali-linux-post-install' },
@@ -493,7 +493,7 @@ export default defineConfig({
               { text: '堡垒机部署与配置', link: '/security/堡垒机' },
               { text: '数据库审计实践', link: '/security/数据库审计' },
             ]},
-            { text: '数据库', items: [
+            { text: '数据库', collapsed: true, items: [
               { text: 'CentOS 7.9 离线安装 MySQL 5.7.36', link: '/database/centos7-offline-mysql5736' },
               { text: '达梦数据库快速恢复工具集', link: '/database/dmdb-recovery-toolset' },
               { text: 'MySQL 数据库 binlog 日志正确清理方法', link: '/database/mysql-binlog-cleanup' },
@@ -504,7 +504,7 @@ export default defineConfig({
               { text: 'Redis 缓存策略与高可用', link: '/database/redis-cache' },
               { text: 'Redis 运维指南', link: '/database/redis' },
             ]},
-            { text: '中间件', items: [
+            { text: '中间件', collapsed: true, items: [
               { text: 'Docker & Docker Compose 全场景命令手册', link: '/middleware/docker-full-manual' },
               { text: 'NGINX + Keepalived 高可用配置', link: '/middleware/nginx-keepalived-ha' },
               { text: 'Nginx 反向代理与负载均衡', link: '/middleware/nginx-proxy' },
@@ -512,7 +512,7 @@ export default defineConfig({
               { text: 'Nginx 配置指南', link: '/middleware/nginx' },
               { text: 'Tomcat 部署与优化', link: '/middleware/tomcat' },
             ]},
-            { text: '云平台', items: [
+            { text: '云平台', collapsed: true, items: [
               { text: 'Alibaba Cloud Linux 3 导入VMware vSphere虚拟化平台', link: '/cloud/alibaba-cloud-vmware-import' },
               { text: 'KunLun G5680 V2 单节点部署 DeepSeek-70B', link: '/cloud/deepseek-70b-deploy' },
               { text: 'Kubernetes 入门与实战', link: '/cloud/kubernetes-practice' },
@@ -520,7 +520,7 @@ export default defineConfig({
               { text: 'LLaMA-Factory NPU 环境部署文档', link: '/cloud/llama-factory-npu-deploy' },
               { text: 'VMware 虚拟化运维', link: '/cloud/vmware' },
             ]},
-            { text: '自动化运维', items: [
+            { text: '自动化运维', collapsed: true, items: [
               { text: 'Ansible 入门与实战', link: '/automation/ansible' },
               { text: 'elssh 构建指南 - 基于 Docker 的 RPM 打包', link: '/automation/elssh-build-guide' },
               { text: 'Jenkins CI/CD 流水线搭建', link: '/automation/jenkins' },
