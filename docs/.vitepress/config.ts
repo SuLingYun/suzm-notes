@@ -456,7 +456,6 @@ export default defineConfig({
         {
           text: '笔记分类',
           items: [
-            { text: '笔记概览', link: '/notes/' },
             { text: 'Linux 运维', items: [
               { text: 'CentOS 系统调优完全指南', link: '/linux/centos-tuning' },
               { text: 'CentOS 7 搭建 FTP 服务器（vsftpd）', link: '/linux/centos7-ftp-server' },
