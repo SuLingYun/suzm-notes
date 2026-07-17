@@ -7,6 +7,7 @@ const basePath = isGithubPages ? '/suzm-notes/' : '/'
 const siteUrl = isNetlify ? 'https://suzm.cn' : 'https://sulingyun.github.io/suzm-notes/'
 
 // 笔记侧边栏完整结构（所有分类共享）
+// NOTES_SIDEBAR_ITEMS_START
 const notesSidebarItems = [
   { text: 'Linux 运维', collapsed: true, items: [
     { text: 'CentOS 系统调优完全指南', link: '/linux/centos-tuning' },
@@ -37,14 +38,6 @@ const notesSidebarItems = [
     { text: '各种交换机查看邻居交换机情况', link: '/network/switch-neighbor-discovery' },
     { text: 'WAF 防护实践', link: '/network/waf' },
   ]},
-  { text: '安全', collapsed: true, items: [
-    { text: '数据库审计与合规', link: '/security/database-audit' },
-    { text: 'Kali Linux 系统 Docker 安装及部署 AWVS、Nessus', link: '/security/kali-docker-awvs-nessus' },
-    { text: 'Kali Linux 安装后需要做的事情', link: '/security/kali-linux-post-install' },
-    { text: 'Windows Server 域控制器重置管理员密码', link: '/security/windows-domain-controller-reset-password' },
-    { text: '堡垒机部署与配置', link: '/security/堡垒机' },
-    { text: '数据库审计实践', link: '/security/数据库审计' },
-  ]},
   { text: '数据库', collapsed: true, items: [
     { text: 'CentOS 7.9 离线安装 MySQL 5.7.36', link: '/database/centos7-offline-mysql5736' },
     { text: '达梦数据库快速恢复工具集', link: '/database/dmdb-recovery-toolset' },
@@ -72,6 +65,14 @@ const notesSidebarItems = [
     { text: 'LLaMA-Factory NPU 环境部署文档', link: '/cloud/llama-factory-npu-deploy' },
     { text: 'VMware 虚拟化运维', link: '/cloud/vmware' },
   ]},
+  { text: '安全', collapsed: true, items: [
+    { text: '数据库审计与合规', link: '/security/database-audit' },
+    { text: 'Kali Linux 系统 Docker 安装及部署 AWVS、Nessus', link: '/security/kali-docker-awvs-nessus' },
+    { text: 'Kali Linux 安装后需要做的事情', link: '/security/kali-linux-post-install' },
+    { text: 'Windows Server 域控制器重置管理员密码', link: '/security/windows-domain-controller-reset-password' },
+    { text: '堡垒机部署与配置', link: '/security/堡垒机' },
+    { text: '数据库审计实践', link: '/security/数据库审计' },
+  ]},
   { text: '自动化运维', collapsed: true, items: [
     { text: 'Ansible 入门与实战', link: '/automation/ansible' },
     { text: 'elssh 构建指南 - 基于 Docker 的 RPM 打包', link: '/automation/elssh-build-guide' },
@@ -82,6 +83,7 @@ const notesSidebarItems = [
     { text: 'Zabbix 企业级监控实战', link: '/automation/zabbix' },
   ]},
 ]
+// NOTES_SIDEBAR_ITEMS_END
 
 export default defineConfig({
   base: basePath,
@@ -462,10 +464,10 @@ export default defineConfig({
       '/automation/': [
         { text: '笔记', items: notesSidebarItems }
       ],
-      // SIDEBAR_AUTO_GENERATED_END
       '/notes/': [
         { text: '笔记', items: notesSidebarItems }
       ],
+      // SIDEBAR_AUTO_GENERATED_END
     },
 
     // 页脚
