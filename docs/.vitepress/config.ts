@@ -122,7 +122,7 @@ export default defineConfig({
       provider: 'algolia',
       options: {
         appId: '5993JXWFOE',
-        apiKey: '这里填 Search-Only API Key',
+        apiKey: '62314e039b843ea7171c9f7030b8af56',
         indexName: 'xiaomidu',
       },
     },
