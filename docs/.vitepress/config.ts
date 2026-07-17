@@ -197,6 +197,7 @@ export default defineConfig({
         {
           text: '速查手册',
           items: [
+          // QUICKREF_SIDEBAR_START
             { text: 'AI', collapsed: true, items: [
               { text: 'ai-tools', link: '/quickref/ai/ai-tools' },
               { text: 'chatgpt', link: '/quickref/ai/chatgpt' },
@@ -205,8 +206,8 @@ export default defineConfig({
               { text: 'cursor-cli', link: '/quickref/ai/cursor-cli' },
               { text: 'gemini-cli', link: '/quickref/ai/gemini-cli' },
               { text: 'gemma4', link: '/quickref/ai/gemma4' },
-              { text: 'grok', link: '/quickref/ai/grok' },
               { text: 'grok-cli', link: '/quickref/ai/grok-cli' },
+              { text: 'grok', link: '/quickref/ai/grok' },
             ] },
             { text: '编程语言与框架', collapsed: true, items: [
               { text: 'bash', link: '/quickref/programming/bash' },
@@ -242,8 +243,8 @@ export default defineConfig({
               { text: 'typescript', link: '/quickref/programming/typescript' },
             ] },
             { text: 'Docker 与容器', collapsed: true, items: [
-              { text: 'docker', link: '/quickref/docker/docker' },
               { text: 'docker-compose', link: '/quickref/docker/docker-compose' },
+              { text: 'docker', link: '/quickref/docker/docker' },
               { text: 'dockerfile', link: '/quickref/docker/dockerfile' },
               { text: 'kubernetes', link: '/quickref/docker/kubernetes' },
             ] },
@@ -267,8 +268,8 @@ export default defineConfig({
               { text: 'lessjs', link: '/quickref/frontend/lessjs' },
               { text: 'nextjs', link: '/quickref/frontend/nextjs' },
               { text: 'pinia', link: '/quickref/frontend/pinia' },
-              { text: 'react', link: '/quickref/frontend/react' },
               { text: 'react-native', link: '/quickref/frontend/react-native' },
+              { text: 'react', link: '/quickref/frontend/react' },
               { text: 'reactrouter', link: '/quickref/frontend/reactrouter' },
               { text: 'rxjs', link: '/quickref/frontend/rxjs' },
               { text: 'sass', link: '/quickref/frontend/sass' },
@@ -370,12 +371,12 @@ export default defineConfig({
             ] },
             { text: 'Git 与协作', collapsed: true, items: [
               { text: 'git', link: '/quickref/git/git' },
-              { text: 'github', link: '/quickref/git/github' },
               { text: 'github-actions', link: '/quickref/git/github-actions' },
               { text: 'github-cli', link: '/quickref/git/github-cli' },
               { text: 'github-copilot', link: '/quickref/git/github-copilot' },
-              { text: 'gitlab', link: '/quickref/git/gitlab' },
+              { text: 'github', link: '/quickref/git/github' },
               { text: 'gitlab-ci', link: '/quickref/git/gitlab-ci' },
+              { text: 'gitlab', link: '/quickref/git/gitlab' },
               { text: 'subversion', link: '/quickref/git/subversion' },
             ] },
             { text: '数据库与搜索', collapsed: true, items: [
@@ -439,6 +440,7 @@ export default defineConfig({
               { text: 'symbol-code', link: '/quickref/reference/symbol-code' },
               { text: 'time-zones', link: '/quickref/reference/time-zones' },
             ] },
+          // QUICKREF_SIDEBAR_END
           ]
         }
       ],

@@ -11,7 +11,8 @@ interface PostInfo {
 declare const data: PostInfo[]
 export { data }
 
-export default createContentLoader('**/*.md', {
+// 只加载笔记分类下的文章（排除索引页和速查手册）
+export default createContentLoader(['linux/*.md', 'network/*.md', 'database/*.md', 'middleware/*.md', 'cloud/*.md', 'security/*.md', 'automation/*.md'], {
   excerpt: true,
   transform(raw) {
     const posts = raw

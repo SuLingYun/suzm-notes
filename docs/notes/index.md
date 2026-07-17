@@ -4,9 +4,14 @@ date: 2026-07-17
 description: 十多年 IT 运维生涯的实战笔记，涵盖 Linux、网络、数据库、中间件、云平台、安全、自动化运维等领域。
 ---
 
+<script setup>
+import { data as posts } from '../.vitepress/theme/posts.data'
+const totalNotes = posts.length || 0
+</script>
+
 # 笔记
 
-十多年 IT 运维生涯的实战笔记，涵盖 7 个技术领域，共 59 篇文章。
+十多年 IT 运维生涯的实战笔记，涵盖 7 个技术领域，共 {{ totalNotes }} 篇文章。
 
 从 Linux 系统调优到网络故障排查，从数据库主从搭建到 K8s 容器编排，从安全加固到自动化运维——踩过的坑、淌过的河，都整理成了笔记。
 

@@ -3,9 +3,9 @@ import { withBase } from 'vitepress'
 import { data as posts } from './posts.data'
 import { data as quickrefData } from './quickref.data'
 
-const totalArticles = posts.length || 59
-const totalQuickref = quickrefData.reduce((sum, q) => sum + q.count, 0) || 212
-const totalNotes = totalArticles
+const totalNotes = posts.length || 0
+const totalQuickref = quickrefData.reduce((sum, q) => sum + q.count, 0) || 0
+const totalArticles = totalNotes + totalQuickref
 
 const quickrefDesc = `基于 jaywcjlove/reference 开源项目整理的中文技术速查手册，涵盖编程语言、前端框架、工具、命令等 15 个分类，共 ${totalQuickref} 篇，适合日常开发与运维快速查阅。`
 const notesDesc = `十多年 IT 运维实战笔记，涵盖 Linux、网络、数据库、中间件、云平台、安全、自动化运维 7 个领域，共 ${totalNotes} 篇文章。踩过的坑都整理成了笔记，方便查阅。`
