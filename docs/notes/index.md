@@ -4,12 +4,6 @@ date: 2026-07-17
 description: 十多年 IT 运维生涯的实战笔记，涵盖 Linux、网络、数据库、中间件、云平台、安全、自动化运维等领域。
 ---
 
-<script setup>
-import CategoryNav from '../.vitepress/theme/CategoryNav.vue'
-</script>
-
-<CategoryNav current="notes" />
-
 # 笔记
 
 十多年 IT 运维生涯的实战笔记，涵盖 7 个技术领域，共 59 篇文章。
