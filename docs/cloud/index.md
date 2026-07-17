@@ -3,6 +3,12 @@ title: 云平台运维笔记
 description: 云平台运维相关技术笔记
 ---
 
+<script setup>
+import CategoryNav from '../.vitepress/theme/CategoryNav.vue'
+</script>
+
+<CategoryNav current="cloud" />
+
 # 云平台运维笔记
 
 本目录汇总云平台相关的运维笔记，涵盖 VMware 虚拟化与 Kubernetes 容器编排两大核心领域。

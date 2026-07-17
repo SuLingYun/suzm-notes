@@ -3,6 +3,12 @@ title: 数据库运维笔记
 description: 数据库运维相关技术笔记
 ---
 
+<script setup>
+import CategoryNav from '../.vitepress/theme/CategoryNav.vue'
+</script>
+
+<CategoryNav current="database" />
+
 # 数据库运维笔记
 
 本目录汇总了数据库相关的运维笔记，涵盖 MySQL、Redis 等主流数据库的安装部署、配置优化、监控告警、备份恢复及故障处理等实践内容。

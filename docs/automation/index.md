@@ -3,6 +3,12 @@ title: 自动化运维
 description: Ansible、Jenkins、Prometheus、Zabbix 等自动化运维工具实战
 ---
 
+<script setup>
+import CategoryNav from '../.vitepress/theme/CategoryNav.vue'
+</script>
+
+<CategoryNav current="automation" />
+
 # 自动化运维
 
 自动化运维是云时代的核心竞争力。本文档整理了配置管理、CI/CD、监控告警等领域的实战经验。

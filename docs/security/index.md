@@ -3,6 +3,12 @@ title: 安全运维笔记
 description: 安全运维相关技术笔记
 ---
 
+<script setup>
+import CategoryNav from '../.vitepress/theme/CategoryNav.vue'
+</script>
+
+<CategoryNav current="security" />
+
 # 安全运维笔记
 
 本目录汇总安全运维相关的笔记，涵盖堡垒机部署、数据库审计、渗透测试等核心安全实践。

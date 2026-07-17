@@ -3,6 +3,12 @@ title: 网络运维笔记
 description: 网络运维相关技术笔记
 ---
 
+<script setup>
+import CategoryNav from '../.vitepress/theme/CategoryNav.vue'
+</script>
+
+<CategoryNav current="network" />
+
 # 网络运维笔记
 
 本目录汇集了网络运维相关的技术笔记，涵盖防火墙配置、WAF 防护实践、网络故障排查等内容。

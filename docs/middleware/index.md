@@ -3,6 +3,12 @@ title: 中间件运维笔记
 description: 中间件运维相关技术笔记
 ---
 
+<script setup>
+import CategoryNav from '../.vitepress/theme/CategoryNav.vue'
+</script>
+
+<CategoryNav current="middleware" />
+
 # 中间件运维笔记
 
 本目录汇总了中间件相关的运维笔记，涵盖 Nginx、Tomcat 等常用中间件的安装部署、配置优化、性能调优及故障处理等实践内容。

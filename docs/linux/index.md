@@ -3,6 +3,12 @@ title: Linux 运维笔记
 description: Linux 系统运维相关文章索引
 ---
 
+<script setup>
+import CategoryNav from '../.vitepress/theme/CategoryNav.vue'
+</script>
+
+<CategoryNav current="linux" />
+
 # Linux 运维笔记
 
 Linux 系统运维是日常工作中最基础也最重要的部分。这里整理了系统调优、故障排查、Shell 脚本等方面的实战经验。
