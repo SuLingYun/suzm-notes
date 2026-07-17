@@ -43,6 +43,14 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
+        detailedView: true,
+        miniSearch: {
+          searchOptions: {
+            fuzzy: 0.2,
+            prefix: true,
+            boost: { title: 4, heading: 2 }
+          }
+        },
         locales: {
           zh: {
             translations: {
