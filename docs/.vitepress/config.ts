@@ -109,6 +109,7 @@ export default defineConfig({
           { text: '自动化运维', link: '/automation/' }
         ]
       },
+      { text: '关于我', link: '/about' }
     ],
 
     // 侧边栏 - 根据路径自动匹配

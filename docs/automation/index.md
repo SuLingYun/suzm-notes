@@ -7,9 +7,13 @@ description: Ansible、Jenkins、Prometheus、Zabbix 等自动化运维工具实
 
 自动化运维是云时代的核心竞争力。本文档整理了配置管理、CI/CD、监控告警等领域的实战经验。
 
-## 文章列表
+## 涵盖内容
 
-<CategoryList category="自动化运维" />
+- **配置管理**：Ansible 入门与实战、自动化任务编排
+- **CI/CD 流水线**：Jenkins 持续集成、持续部署
+- **监控告警**：Prometheus 监控体系、Zabbix 企业级监控
+- **脚本自动化**：Shell 脚本实战、自动化任务
+- **文件同步**：rsync + inotify 实时文件同步
 
 ## 工具速查
 
@@ -19,7 +23,6 @@ description: Ansible、Jenkins、Prometheus、Zabbix 等自动化运维工具实
 | **Jenkins** | CI/CD | 代码构建、测试、部署流水线 |
 | **Prometheus** | 监控告警 | 容器监控、服务发现、多维告警 |
 | **Zabbix** | 监控告警 | 传统服务器、网络设备监控 |
-| **GitLab CI** | CI/CD | Git 仓库集成、自动化测试 |
-| **Cron** | 定时任务 | 数据备份、日志清理、周期性巡检 |
+| **rsync** | 文件同步 | 实时同步、备份、分发 |
 
 > 持续更新中，欢迎收藏关注。
