@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 
 const isNetlify = !!process.env.NETLIFY
 const isGithubPages = !!process.env.GITHUB_PAGES
-const isDev = !isGithubPages && !isNetlify
 const basePath = isGithubPages ? '/suzm-notes/' : '/'
 const siteUrl = isNetlify ? 'https://suzm.cn' : 'https://sulingyun.github.io/suzm-notes/'
 

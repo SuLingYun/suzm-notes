@@ -8,61 +8,51 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ae4d9388-236e-4de9-9f62-1ce36ae46173/deploy-status)](https://app.netlify.com/projects/xiaomidu/deploys)
 [![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
 
----
-
 ## 在线访问
 
 | 平台 | 地址 | 说明 |
 |:-----|:-----|:-----|
-| GitHub Pages | [https://sulingyun.github.io/suzm-notes/](https://sulingyun.github.io/suzm-notes/) | 自动部署 |
-| Netlify | [https://suzm.cn](https://suzm.cn) | 自定义域名，自动 HTTPS |
-
----
+| GitHub Pages | [sulingyun.github.io/suzm-notes](https://sulingyun.github.io/suzm-notes/) | 自动部署 |
+| Netlify | [suzm.cn](https://suzm.cn) | 自定义域名，自动 HTTPS |
 
 ## 项目简介
 
 基于 [VitePress](https://vitepress.dev/) 构建的个人技术知识库，涵盖 **Linux 运维、网络与安全、数据库、中间件、云原生、自动化运维** 等领域的实践笔记，以及 **210+ 篇技术速查手册**。
 
-- **运维笔记** — 实战经验与踩坑记录，7 个分类持续更新
-- **速查手册** — 整理自 [jaywcjlove/reference](https://github.com/jaywcjlove/reference)（MIT 许可证），15 个分类共 **212 篇**
-- **全文搜索** — 本地模糊搜索，无需后端
-- **响应式布局** — 桌面端与移动端自适应，支持明暗主题
-- **双平台部署** — GitHub Pages + Netlify CI/CD 自动部署
+## 如何发布文章
 
----
-
-## 快速开始
+只需在对应分类目录创建 `.md` 文件（需包含 `title` 和 `date` 的 frontmatter），然后推送到 GitHub 即可：
 
 ```bash
-# 前置要求：Node.js >= 20
+# 1. 创建文章
+echo '---
+title: 我的新文章
+date: 2026-07-17
+---
 
-git clone https://github.com/SuLingYun/suzm-notes.git
-cd suzm-notes
-npm install
-npm run docs:dev      # 本地开发（http://localhost:5173）
-npm run docs:build    # 构建生产版本
-npm run docs:preview  # 预览构建结果
+# 文章内容' > docs/linux/my-new-post.md
+
+# 2. 推送到 GitHub（自动触发构建部署）
+git add docs/linux/my-new-post.md
+git commit -m "docs: 新增 Linux 文章"
+git push
 ```
 
-| 命令 | 说明 |
-|:-----|:-----|
-| `npm run docs:dev` | 启动开发服务器，支持热更新 |
-| `npm run docs:build` | 自动更新侧边栏 + 构建生产版本 |
-| `npm run docs:preview` | 本地预览构建结果 |
-| `npm run sidebar:update` | 手动更新侧边栏配置 |
-| `npm run sidebar:check` | 查看当前所有文章清单 |
+推送后，GitHub Actions 会自动执行：
+1. 运行 `update-sidebar.py` 脚本 → 自动更新侧边栏配置
+2. 构建 VitePress 静态站点
+3. 部署到 GitHub Pages（Netlify 同步部署）
 
----
+> 本地预览：`npm install && npm run docs:dev`（Node.js >= 20）
 
-## 发布文章
+## 自动化机制
 
-1. 在对应分类目录（`docs/linux/`、`docs/network/` 等）创建 `.md` 文件，包含 frontmatter
-2. 运行 `npm run sidebar:update` 自动更新侧边栏
-3. 推送到 GitHub，Actions 自动构建部署
-
-> `npm run docs:build` 会自动执行 `sidebar:update`，可跳过第二步。
-
----
+| 环节 | 方式 | 说明 |
+|:-----|:-----|:-----|
+| 侧边栏 | 自动生成 | `scripts/update-sidebar.py` 扫描目录，自动更新 `config.ts` |
+| 文章统计 | 构建时自动计算 | `posts.data.ts` 构建时扫描 MD 文件，首页实时显示分类文章数 |
+| 构建部署 | CI/CD 自动触发 | GitHub Actions + Netlify 双平台自动部署 |
+| 全文搜索 | 本地模糊搜索 | 基于 MiniSearch，无需后端服务 |
 
 ## 项目结构
 
@@ -70,8 +60,7 @@ npm run docs:preview  # 预览构建结果
 suzm-notes/
 ├── docs/
 │   ├── .vitepress/          # 主题配置与自定义组件
-│   ├── quickref/            # 速查手册（210+ 篇）
-│   ├── notes/               # 笔记概览页
+│   ├── quickref/            # 速查手册（210+ 篇，15 个分类）
 │   ├── linux/               # Linux 运维笔记
 │   ├── network/             # 网络笔记
 │   ├── database/            # 数据库笔记
@@ -79,15 +68,13 @@ suzm-notes/
 │   ├── cloud/               # 云平台笔记
 │   ├── security/            # 安全笔记
 │   ├── automation/          # 自动化运维笔记
+│   ├── notes/               # 笔记概览页
 │   ├── index.md             # 首页
 │   └── about.md             # 关于页面
 ├── scripts/                 # 辅助脚本
 ├── .github/workflows/       # CI/CD 配置
-├── package.json
-└── README.md
+└── package.json
 ```
-
----
 
 ## 许可证
 
@@ -96,9 +83,7 @@ suzm-notes/
 - 运维笔记部分为个人原创，遵循 MIT 许可证
 - 速查手册部分内容整理自 [jaywcjlove/reference](https://github.com/jaywcjlove/reference)（MIT 许可证），版权归原作者所有
 
----
-
-## 联系方式
+## 联系
 
 - **GitHub**：[@SuLingYun](https://github.com/SuLingYun)
 - **邮箱**：suzhiming.cn@gmail.com

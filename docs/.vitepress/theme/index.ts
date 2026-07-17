@@ -7,8 +7,6 @@ import './custom.css'
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }) {
-  },
   Layout: defineComponent({
     name: 'MyLayout',
     setup() {
