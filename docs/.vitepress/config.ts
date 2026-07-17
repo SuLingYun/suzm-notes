@@ -96,8 +96,11 @@ export default defineConfig({
       { text: '速查手册', link: '/quickref/' },
       {
         text: '笔记',
+        link: '/notes/',
         items: [
-          { text: 'Linux', link: '/linux/' },
+          { text: '笔记概览', link: '/notes/' },
+          { text: '---' },
+          { text: 'Linux 运维', link: '/linux/' },
           { text: '网络', link: '/network/' },
           { text: '安全', link: '/security/' },
           { text: '数据库', link: '/database/' },
@@ -106,7 +109,6 @@ export default defineConfig({
           { text: '自动化运维', link: '/automation/' }
         ]
       },
-      { text: '关于我', link: '/about' }
     ],
 
     // 侧边栏 - 根据路径自动匹配
@@ -449,6 +451,21 @@ export default defineConfig({
         ]}
       ],
       // SIDEBAR_AUTO_GENERATED_END
+      '/notes/': [
+        {
+          text: '笔记分类',
+          items: [
+            { text: '笔记概览', link: '/notes/' },
+            { text: 'Linux 运维', link: '/linux/' },
+            { text: '网络', link: '/network/' },
+            { text: '安全', link: '/security/' },
+            { text: '数据库', link: '/database/' },
+            { text: '中间件', link: '/middleware/' },
+            { text: '云平台', link: '/cloud/' },
+            { text: '自动化运维', link: '/automation/' },
+          ]
+        }
+      ],
     },
 
     // 页脚
