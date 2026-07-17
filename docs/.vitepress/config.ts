@@ -123,7 +123,7 @@ export default defineConfig({
       options: {
         appId: '5993JXWFOE',
         apiKey: '62314e039b843ea7171c9f7030b8af56',
-        indexName: 'xiaomidu',
+        indexName: 'suzmsuzm',
       },
     },
 
