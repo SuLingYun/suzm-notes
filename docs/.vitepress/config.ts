@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 const isNetlify = !!process.env.NETLIFY
 const isGithubPages = !!process.env.GITHUB_PAGES
 const basePath = isGithubPages ? '/suzm-notes/' : '/'
-const siteUrl = isNetlify ? 'https://suzm.cn' : 'https://sulingyun.github.io/suzm-notes/'
+const siteUrl = isNetlify ? 'https://suzm.cn' : 'https://sulingyun.github.io/suzm-notes'
 
 // 笔记侧边栏完整结构（所有分类共享）
 // NOTES_SIDEBAR_ITEMS_START
@@ -99,16 +99,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: `${basePath}favicon.png`, type: 'image/png' }],
     ['meta', { property: 'og:locale', content: 'zh_CN' }],
-    ['meta', { property: 'og:title', content: '小弥渡的运维笔记' }],
-    ['meta', { property: 'og:description', content: '一个运维老兵的杂货铺 — 十多年 IT 生涯，什么都接触过，什么都不太精通。记不住的就查这里，用过的都整理好了' }],
-    ['meta', { property: 'og:url', content: siteUrl }],
-    ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:image', content: `${siteUrl}/logo-light.png` }],
-    ['meta', { property: 'og:image:alt', content: '小弥渡的运维笔记' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:title', content: '小弥渡的运维笔记' }],
-    ['meta', { name: 'twitter:description', content: '一个运维老兵的杂货铺 — 十多年 IT 生涯，什么都接触过，什么都不太精通。记不住的就查这里，用过的都整理好了' }],
-    ['meta', { name: 'twitter:image', content: `${siteUrl}/logo-light.png` }],
     ['link', { rel: 'canonical', href: 'https://suzm.cn' }],
     ['script', { type: 'application/ld+json' }, JSON.stringify({
       '@context': 'https://schema.org',
@@ -123,6 +114,42 @@ export default defineConfig({
       }
     })],
   ],
+  transformHead({ pageData }) {
+    const head: any[] = []
+
+    const title = pageData.title || '小弥渡的运维笔记'
+    const description = pageData.frontmatter?.description || pageData.description || '一个运维老兵的杂货铺，十多年 IT 生涯，什么都接触过，什么都不太精通'
+
+    // 构建当前页面 URL（cleanUrls 模式，去掉 .md 后缀）
+    let pagePath = pageData.relativePath.replace(/\.md$/, '')
+    if (pagePath === 'index') {
+      pagePath = ''
+    }
+    const pageUrl = pagePath ? `${siteUrl}/${pagePath}` : siteUrl
+
+    // 分享图片 URL
+    const imageUrl = `${siteUrl}/logo-light.png`
+
+    head.push(['meta', { property: 'og:title', content: title }])
+    head.push(['meta', { property: 'og:description', content: description }])
+    head.push(['meta', { property: 'og:url', content: pageUrl }])
+    head.push(['meta', { property: 'og:type', content: pageData.relativePath === 'index.md' ? 'website' : 'article' }])
+    head.push(['meta', { property: 'og:image', content: imageUrl }])
+    head.push(['meta', { property: 'og:image:alt', content: title }])
+    head.push(['meta', { name: 'twitter:title', content: title }])
+    head.push(['meta', { name: 'twitter:description', content: description }])
+    head.push(['meta', { name: 'twitter:image', content: imageUrl }])
+
+    // 文章页添加 article:tag
+    const tags = pageData.frontmatter?.tags
+    if (Array.isArray(tags) && tags.length > 0) {
+      tags.forEach((tag: string) => {
+        head.push(['meta', { property: 'article:tag', content: tag }])
+      })
+    }
+
+    return head
+  },
   // 本地搜索 - 基于 MiniSearch 的模糊全文搜索
   themeConfig: {
     // 站点 Logo，支持亮色/暗色双版本
