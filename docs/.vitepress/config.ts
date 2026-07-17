@@ -41,12 +41,44 @@ export default defineConfig({
     // 隐藏 Logo 旁边的站点标题文字
     siteTitle: false,
     search: {
-      provider: 'algolia',
+      provider: 'local',
       options: {
-        appId: '5993JXWFOE',
-        apiKey: '62314e039b843ea7171c9f7030b8af56',
-        indexName: '小弥渡的运维笔记',
-        _render: { preload: true }
+        locales: {
+          zh: {
+            translations: {
+              button: {
+                buttonText: '搜索',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                searchBox: {
+                  resetButtonTitle: '清除查询条件',
+                  resetButtonAriaLabel: '清除查询条件',
+                  cancelButtonText: '取消'
+                },
+                startScreen: {
+                  recentSearchesTitle: '搜索历史',
+                  noRecentSearchesText: '没有搜索历史',
+                  saveRecentSearchButtonTitle: '保存至搜索历史',
+                  removeRecentSearchButtonTitle: '从搜索历史中移除',
+                  favoriteSearchesTitle: '收藏',
+                  removeFavoriteSearchButtonTitle: '从收藏中移除'
+                },
+                noResultsScreen: {
+                  noResultsText: '找不到结果',
+                  suggestedQueryText: '你可以尝试查询',
+                  openIssueText: '你认为该查询应该有结果？',
+                  openIssueLinkText: '反馈'
+                },
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换',
+                  closeText: '关闭'
+                }
+              }
+            }
+          }
+        }
       }
     },
 
