@@ -36,6 +36,7 @@ const notesSidebarItems = [
     { text: 'Linux 网络配置文档', link: '/network/linux-network-config' },
     { text: '各种交换机查看邻居交换机情况', link: '/network/switch-neighbor-discovery' },
     { text: 'WAF 防护实践', link: '/network/waf' },
+    { text: '为什么端口号最大是 65535？', link: '/network/为什么端口号最大是65535' },
   ]},
   { text: '数据库', collapsed: true, items: [
     { text: 'CentOS 7.9 离线安装 MySQL 5.7.36', link: '/database/centos7-offline-mysql5736' },
@@ -108,6 +109,19 @@ export default defineConfig({
     ['meta', { name: 'twitter:title', content: '小弥渡的运维笔记' }],
     ['meta', { name: 'twitter:description', content: '一个运维老兵的杂货铺 — 十多年 IT 生涯，什么都接触过，什么都不太精通。记不住的就查这里，用过的都整理好了' }],
     ['meta', { name: 'twitter:image', content: `${siteUrl}/logo-light.png` }],
+    ['link', { rel: 'canonical', href: 'https://suzm.cn' }],
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      'name': '小弥渡的运维笔记',
+      'url': 'https://suzm.cn',
+      'description': '一个运维老兵的杂货铺，十多年 IT 生涯，什么都接触过，什么都不太精通',
+      'author': {
+        '@type': 'Person',
+        'name': '小弥渡',
+        'url': 'https://github.com/SuLingYun'
+      }
+    })],
   ],
   // 本地搜索 - 基于 MiniSearch 的模糊全文搜索
   themeConfig: {
