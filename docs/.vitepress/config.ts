@@ -122,11 +122,10 @@ export default defineConfig({
       provider: 'local',
       options: {
         detailedView: true,
-        _original: 'none',
         miniSearch: {
           searchOptions: {
-            fuzzy: 0.1,
-            prefix: false,
+            fuzzy: 0.2,
+            prefix: true,
             boost: { title: 4, heading: 2 }
           }
         },
